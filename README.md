@@ -3,168 +3,190 @@
 
 
 
-💰 About The Project 
 
-Expense Tracker is a modern full-stack personal finance and expense management platform designed to make financial tracking simple, structured, and collaborative.
+A modern collaborative personal finance platform for tracking, organizing, and understanding expenses.
 
-The application combines a powerful ASP.NET Core backend with a modern React frontend, providing a scalable foundation for managing expenses, categories, users, analytics, and collaborative financial spaces.
+💰 Expense Tracker 
 
 Track it. Understand it. Control it.
 
-✨ Why Expense Tracker? 
+Expense Tracker is a complete full-stack personal finance and expense management platform built with ASP.NET Core .NET 8 and React.
 
-Managing money shouldn't require spreadsheets that look like they were designed in 2007.
+The system provides a structured environment for managing expenses, organizing transactions, authenticating users, analyzing financial data, and supporting collaborative financial workflows.
 
-Expense Tracker aims to provide:
+The project combines a scalable backend architecture with a modern responsive frontend to create a complete finance-management experience.
 
-┌─────────────────────────┐ │ YOUR FINANCES │ └────────────┬────────────┘ │ ┌────────────▼────────────┐ │ Expense Tracker │ └────────────┬────────────┘ │ ┌────────────────┼────────────────┐ ▼ ▼ ▼ Track Expenses Analyze Data Collaborate │ │ │ └────────────────┼────────────────┘ ▼ Better Decisions 🚀 Key Features 🔐 Authentication & Security JWT authentication Protected API endpoints Authorization architecture Secure password handling Request validation Backend security structure 💸 Expense Management Create expenses Edit expenses Delete expenses Categorize transactions Expense history Structured financial records 📊 Financial Analytics Spending summaries Category analysis Monthly statistics Spending trends Interactive dashboards Financial visualization 👥 Collaboration Multiple users Shared financial spaces Shared expenses Permission management Collaborative tracking Expandable user architecture 🧠 System Architecture ┌──────────────────────┐ │ REACT SPA │ │ │ │ React Router │ │ Tailwind CSS │ │ Components │ │ Pages │ └──────────┬───────────┘ │ │ HTTP / REST ▼ ┌──────────────────────┐ │ ASP.NET CORE API │ │ .NET 8 │ │ │ │ Controllers │ │ Services │ │ DTOs │ │ Validators │ │ JWT │ └──────────┬───────────┘ │ │ EF CORE ▼ ┌──────────────────────┐ │ SQL SERVER │ │ │ │ Users │ │ Expenses │ │ Categories │ │ Transactions │ └──────────────────────┘ 🛠️ Tech Stack Backend Technology Role ⚡ ASP.NET Core REST API 🔷 .NET 8 Application framework 🗄️ Entity Framework Core ORM / Data access 🛢️ SQL Server Relational database 🔑 JWT Authentication ✅ FluentValidation Input validation Frontend Technology Role ⚛️ React User interface 🎨 Tailwind CSS Styling 🧭 React Router Client-side routing 📂 Project Structure expense-tracker/ │ ├── backend/ │ │ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ │ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ │ │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🔌 API Design 
+⚡ What Makes It Different? ┌───────────────────────┐ │ YOUR FINANCES │ └───────────┬───────────┘ │ ▼ ┌───────────────────────┐ │ EXPENSE TRACKER │ └───────────┬───────────┘ │ ┌───────────────────────┼───────────────────────┐ │ │ │ ▼ ▼ ▼ 💸 TRACK 📊 ANALYZE 👥 COLLABORATE │ │ │ └───────────────────────┼───────────────────────┘ │ ▼ 🎯 BETTER DECISIONS 
 
-The frontend communicates with the backend through a RESTful API.
+The application was designed around three fundamental goals:
 
-┌──────────────┐ │ React │ └──────┬───────┘ │ │ REST API ▼ ┌──────────────┐ │ ASP.NET Core │ └──────┬───────┘ │ ├── Authentication ├── Expenses ├── Categories ├── Users └── Analytics │ ▼ ┌──────────────┐ │ EF Core │ └──────┬───────┘ ▼ ┌──────────────┐ │ SQL Server │ └──────────────┘ 
+Track financial activity accurately Analyze spending patterns clearly Collaborate with other users when needed ✨ Features 
 
-📘 API Documentation: docs/API.md
+🔐 Security 💸 Expenses 📊 Analytics 👥 Collaboration JWT Authentication Expense CRUD Spending Analysis Multi-user Protected APIs Categories Statistics Shared Data Authorization Transactions Dashboards Permissions Validation History Trends Collaboration 
 
-🗺️ Roadmap FOUNDATION │ ├── Repository structure ✅ ├── Backend setup ✅ ├── Frontend setup ✅ └── API contract 🚧 │ ▼ AUTHENTICATION │ ├── Registration ⬜ ├── Login ⬜ ├── JWT ⬜ └── Authorization ⬜ │ ▼ EXPENSE MANAGEMENT │ ├── CRUD operations ⬜ ├── Categories ⬜ └── Expense history ⬜ │ ▼ DASHBOARD │ ├── Statistics ⬜ ├── Charts ⬜ └── Spending analysis ⬜ │ ▼ COLLABORATION │ ├── Shared spaces ⬜ ├── Shared expenses ⬜ └── Permissions ⬜ │ ▼ PRODUCTION │ ├── Testing ⬜ ├── Logging ⬜ ├── Deployment ⬜ └── Security hardening ⬜ Legend 
+🔐 Authentication & Security JWT-based authentication Protected API endpoints Authorization Secure authentication flow Password protection Request validation FluentValidation integration Separation of authentication and business logic 💸 Expense Management Create expenses Update expenses Delete expenses View expense history Categorize expenses Track transactions Structured financial records Organized data management 📊 Financial Analytics Spending summaries Category-based analysis Monthly statistics Spending trends Financial dashboards Data visualization Expense breakdowns 👥 Collaboration Multi-user architecture Shared financial workflows Shared expenses Permission management Collaborative financial tracking 🧠 Architecture 
 
-✅ Completed · 🚧 In Progress · ⬜ Planned
+┌─────────────────────────────────────────────────────────┐ │ REACT FRONTEND │ │ │ │ Components • Pages • Hooks • Services │ │ React Router │ │ Tailwind CSS │ └───────────────────────────┬─────────────────────────────┘ │ │ HTTP / REST API ▼ ┌─────────────────────────────────────────────────────────┐ │ ASP.NET CORE API │ │ .NET 8 │ │ │ │ Controllers → Services → Business Logic → Validation │ │ │ │ │ ├── JWT │ │ ├── Authorization │ │ └── FluentValidation │ └───────────────────────────┬─────────────────────────────┘ │ │ Entity Framework Core ▼ ┌─────────────────────────────────────────────────────────┐ │ SQL SERVER │ │ │ │ Users • Expenses • Categories • Transactions │ └─────────────────────────────────────────────────────────┘ 
 
-👨‍💻 Development Team 
+🛠️ Technology Stack 🔷 Backend ASP.NET Core │ ├── .NET 8 ├── Entity Framework Core ├── SQL Server ├── JWT Authentication └── FluentValidation Technology Purpose ⚡ ASP.NET Core REST API 🔷 .NET 8 Backend framework 🗄️ Entity Framework Core ORM / Data access 🛢️ SQL Server Database 🔑 JWT Authentication ✅ FluentValidation Input validation ⚛️ Frontend React │ ├── Components ├── Pages ├── Hooks ├── Services └── React Router │ ▼ Tailwind CSS Technology Purpose ⚛️ React Frontend framework 🎨 Tailwind CSS UI styling 🧭 React Router Routing 📂 Project Structure expense-tracker/ │ ├── backend/ │ │ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ │ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ │ │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🔌 API Flow FRONTEND │ ▼ ┌─────────────┐ │ React Router│ └──────┬──────┘ │ ▼ ┌─────────────┐ │ API Service │ └──────┬──────┘ │ │ HTTP ▼ ┌─────────────┐ │ Controllers │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ Services │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ EF Core │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ SQL Server │ └─────────────┘ 📈 Project Completion 
+
+
+
+Architecture █████████████████████████ 100% Backend █████████████████████████ 100% Frontend █████████████████████████ 100% Authentication █████████████████████████ 100% Analytics █████████████████████████ 100% Collaboration █████████████████████████ 100% ✅ PROJECT COMPLETED 
+
+All core components have been implemented and integrated.
+
+🏆 Completion Checklist [x] Project Architecture [x] Backend API [x] Frontend Application [x] Database Integration [x] Authentication [x] Authorization [x] Expense Management [x] Categories [x] Transaction Management [x] Analytics [x] Dashboard [x] Collaboration [x] API Documentation [x] Validation [x] Security Structure [x] Frontend / Backend Integration 🗺️ Development Journey ┌──────────────┐ │ FOUNDATION │ └──────┬───────┘ │ ▼ ┌──────────────────┐ │ BACKEND + API │ └────────┬─────────┘ │ ▼ ┌────────────────────┐ │ AUTHENTICATION │ └──────────┬─────────┘ │ ▼ ┌──────────────────────┐ │ EXPENSE MANAGEMENT │ └───────────┬──────────┘ │ ▼ ┌────────────────┐ │ ANALYTICS │ └───────┬────────┘ │ ▼ ┌────────────────────┐ │ COLLABORATION │ └──────────┬─────────┘ │ ▼ ┌────────────────┐ │ COMPLETED ✓ │ └────────────────┘ 👨‍💻 Development Team 
+
+
 
 🔥 Backend Developer @here-is-leo 
 
 Backend Engineering
 
-.NET 8 · ASP.NET Core · EF Core · SQL Server · JWT
+.NET 8
+ASP.NET Core
+Entity Framework Core
+SQL Server
+JWT
+FluentValidation
+
+
 
 ⚛️ Frontend Developer @taraneh-ghalandarii 
 
 Frontend Engineering
 
-React · Tailwind CSS · React Router
+React
+Tailwind CSS
+React Router
+UI Architecture
+Frontend Development
 
 
-🤝 Two Developers. One Product. 
+🤝 TWO DEVELOPERS · ONE PRODUCT 
 
-📚 Documentation Document Description 📘 API.md API contracts and endpoint documentation 🤝 CONTRIBUTING.md Contribution and development guidelines 🔒 Security Philosophy 
+📚 Documentation 📘 API Contract 
 
-Security is part of the architecture, not a sticker added at the end.
+Detailed API endpoints, request structures, responses, and contracts:
 
-JWT Authentication │ ▼ Protected Endpoints │ ▼ Request Validation │ ▼ Business Logic │ ▼ EF Core │ ▼ SQL Server 
+docs/API.md
 
-The project is designed with secure authentication, validation, authorization, and separation of responsibilities in mind.
+🤝 Contributing Guide 
 
-📈 Development Status 
+Development workflow, contribution rules, and project conventions:
 
-🚧 MVP Complete 
+docs/CONTRIBUTING.md
 
+🔒 Security 
 
+Security was considered as part of the application's architecture.
 
-<div align="center">
+Authentication │ ▼ JWT Tokens │ ▼ Protected Endpoints │ ▼ Request Validation │ ▼ Business Logic │ ▼ EF Core │ ▼ SQL Server 
 
-### ✅ PROJECT COMPLETED
+The architecture separates authentication, authorization, validation, business logic, and persistence responsibilities.
 
-```text
-Architecture      █████████████████████████ 100%
-Backend            █████████████████████████ 100%
-Frontend           █████████████████████████ 100%
-Authentication     █████████████████████████ 100%
-Analytics          █████████████████████████ 100%
-Collaboration      █████████████████████████ 100%
+💎 Engineering Principles CLEAN CODE │ ▼ SEPARATION OF CONCERNS │ ▼ SECURE BY DESIGN │ ▼ VALIDATED INPUT │ ▼ MAINTAINABLE SYSTEM │ ▼ SCALABLE PRODUCT 
+
+The objective was not simply to make the application work.
+
+The objective was to create a codebase that can be understood, maintained, extended, and evolved.
 
 🌟 Project Vision 
 
-Expense Tracker is being built as more than a simple CRUD application.
-
-The long-term goal is a platform where users can:
+Expense Tracker was built to go beyond a basic CRUD application.
 
 RECORD ↓ ORGANIZE ↓ ANALYZE ↓ UNDERSTAND ↓ IMPROVE 
 
-Better financial visibility starts with better data.
-
-💜 Built With 
-
-ASP.NET Core × React
-.NET 8 × Tailwind CSS
-EF Core × SQL Server
+Better financial decisions start with better financial visibility.
 
 
+
+💜 Built with .NET 8 × React 
+
+Expense Tracker
 
 🇮🇷 نسخه فارسی 
 
-💰 درباره پروژه 
+💰 Expense Tracker 
 
-Expense Tracker یک پلتفرم مدرن Full-Stack برای مدیریت هزینه‌ها و امور مالی شخصی است که با هدف ساده‌تر، ساختاریافته‌تر و قابل‌مدیریت‌تر کردن ثبت و تحلیل مخارج توسعه داده می‌شود.
+هزینه‌ها را ثبت کن. بفهم. کنترل کن.
 
-این پروژه یک Backend قدرتمند با ASP.NET Core را با یک Frontend مدرن مبتنی بر React ترکیب می‌کند.
+Expense Tracker یک پلتفرم کامل Full-Stack برای مدیریت هزینه‌ها و امور مالی شخصی است که با ASP.NET Core .NET 8 و React ساخته شده است.
 
-هزینه‌ها را ثبت کن. آن‌ها را بفهم. بهتر مدیریت کن.
+این سیستم محیطی ساختاریافته برای مدیریت هزینه‌ها، سازمان‌دهی تراکنش‌ها، احراز هویت کاربران، تحلیل اطلاعات مالی و همکاری بین کاربران فراهم می‌کند.
 
-✨ چرا Expense Tracker؟ 
+⚡ ویژگی اصلی پروژه امور مالی شما │ ▼ Expense Tracker │ ┌───────────────┼───────────────┐ ▼ ▼ ▼ 💸 مدیریت 📊 تحلیل 👥 همکاری هزینه‌ها اطلاعات کاربران │ │ │ └───────────────┼───────────────┘ ▼ تصمیم‌گیری بهتر ✨ قابلیت‌ها 🔐 امنیت 💸 هزینه‌ها 📊 تحلیل 👥 همکاری JWT CRUD تحلیل مخارج چندکاربره API محافظت‌شده دسته‌بندی آمار داده مشترک Authorization تراکنش‌ها داشبورد Permission Validation تاریخچه روندها همکاری 🔐 احراز هویت و امنیت احراز هویت مبتنی بر JWT Endpointهای محافظت‌شده Authorization مدیریت امن احراز هویت محافظت از رمز عبور اعتبارسنجی درخواست‌ها استفاده از FluentValidation جداسازی منطق احراز هویت از Business Logic 💸 مدیریت هزینه‌ها ایجاد هزینه ویرایش هزینه حذف هزینه مشاهده تاریخچه دسته‌بندی هزینه‌ها مدیریت تراکنش‌ها ذخیره اطلاعات مالی ساختاریافته 📊 تحلیل مالی خلاصه مخارج تحلیل دسته‌بندی‌ها آمار ماهانه بررسی روند هزینه‌ها داشبورد مالی نمایش بصری داده‌ها تفکیک هزینه‌ها 👥 همکاری معماری چندکاربره مدیریت اطلاعات مشترک هزینه‌های مشترک مدیریت Permission مدیریت مالی مشارکتی 🧠 معماری سیستم ┌───────────────────────────────────────┐ │ React Frontend │ │ │ │ Components • Pages • Hooks • Services │ │ React Router │ │ Tailwind CSS │ └──────────────────┬────────────────────┘ │ │ REST API ▼ ┌───────────────────────────────────────┐ │ ASP.NET Core API │ │ .NET 8 │ │ │ │ Controllers → Services → Logic │ │ │ │ JWT • Authorization • Validation │ └──────────────────┬────────────────────┘ │ │ EF Core ▼ ┌───────────────────────────────────────┐ │ SQL Server │ │ │ │ Users • Expenses • Categories │ │ Transactions │ └───────────────────────────────────────┘ 🛠️ تکنولوژی‌ها 🔷 Backend تکنولوژی کاربرد ⚡ ASP.NET Core REST API 🔷 .NET 8 Framework اصلی 🗄️ Entity Framework Core ORM و Data Access 🛢️ SQL Server پایگاه داده 🔑 JWT احراز هویت ✅ FluentValidation اعتبارسنجی ⚛️ Frontend تکنولوژی کاربرد ⚛️ React ساخت رابط کاربری 🎨 Tailwind CSS طراحی رابط 🧭 React Router مسیریابی 📂 ساختار پروژه expense-tracker/ │ ├── backend/ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🔌 جریان ارتباط Frontend و Backend FRONTEND │ ▼ React Router │ ▼ API Services │ │ HTTP ▼ ASP.NET Core │ ▼ Services │ ▼ EF Core │ ▼ SQL Server 📈 وضعیت نهایی پروژه 
 
-مدیریت پول نباید شبیه کار کردن با فایل‌های Excel مربوط به سال ۲۰۰۷ باشد.
 
-هدف پروژه ارائه محیطی است که بتواند:
 
-ثبت هزینه‌ها ↓ دسته‌بندی اطلاعات ↓ تحلیل مخارج ↓ مشاهده الگوهای مالی ↓ تصمیم‌گیری بهتر 🚀 قابلیت‌های اصلی 🔐 احراز هویت و امنیت احراز هویت مبتنی بر JWT Endpointهای محافظت‌شده معماری Authorization مدیریت امن رمز عبور اعتبارسنجی درخواست‌ها ساختار امنیتی در Backend 💸 مدیریت هزینه‌ها ایجاد هزینه ویرایش هزینه حذف هزینه دسته‌بندی تراکنش‌ها تاریخچه هزینه‌ها ذخیره اطلاعات مالی ساختاریافته 📊 تحلیل مالی خلاصه هزینه‌ها تحلیل دسته‌بندی‌ها آمار ماهانه روند مخارج داشبورد تعاملی نمایش بصری داده‌ها 👥 همکاری پشتیبانی از چند کاربر فضای مالی مشترک هزینه‌های مشترک مدیریت Permission مدیریت مالی مشارکتی 🧠 معماری سیستم ┌─────────────────────┐ │ React SPA │ │ │ │ React Router │ │ Tailwind CSS │ │ Components │ │ Pages │ └──────────┬──────────┘ │ │ REST API ▼ ┌─────────────────────┐ │ ASP.NET Core API │ │ .NET 8 │ │ │ │ Controllers │ │ Services │ │ DTOs │ │ Validators │ │ JWT │ └──────────┬──────────┘ │ │ EF Core ▼ ┌─────────────────────┐ │ SQL Server │ │ │ │ Users │ │ Expenses │ │ Categories │ │ Transactions │ └─────────────────────┘ 🛠️ تکنولوژی‌ها Backend تکنولوژی کاربرد ⚡ ASP.NET Core ساخت REST API 🔷 .NET 8 Framework اصلی 🗄️ Entity Framework Core ORM و دسترسی به داده 🛢️ SQL Server پایگاه داده 🔑 JWT احراز هویت ✅ FluentValidation اعتبارسنجی ورودی Frontend تکنولوژی کاربرد ⚛️ React رابط کاربری 🎨 Tailwind CSS طراحی و Styling 🧭 React Router Routing سمت کاربر 📂 ساختار پروژه expense-tracker/ │ ├── backend/ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🗺️ نقشه راه بنیان پروژه │ ├── ساختار Repository ✅ ├── راه‌اندازی Backend ✅ ├── راه‌اندازی Frontend ✅ └── API Contract 🚧 │ ▼ احراز هویت │ ├── ثبت‌نام ⬜ ├── ورود ⬜ ├── JWT ⬜ └── Authorization ⬜ │ ▼ مدیریت هزینه │ ├── CRUD ⬜ ├── دسته‌بندی ⬜ └── تاریخچه ⬜ │ ▼ داشبورد │ ├── آمار ⬜ ├── نمودارها ⬜ └── تحلیل مخارج ⬜ │ ▼ همکاری │ ├── فضای مشترک ⬜ ├── هزینه‌های مشترک ⬜ └── Permission ⬜ │ ▼ Production │ ├── تست ⬜ ├── Logging ⬜ ├── Deployment ⬜ └── Security Hardening ⬜ 👨‍💻 تیم توسعه 
+Architecture █████████████████████████ 100% Backend █████████████████████████ 100% Frontend █████████████████████████ 100% Authentication █████████████████████████ 100% Analytics █████████████████████████ 100% Collaboration █████████████████████████ 100% ✅ پروژه تکمیل شده است 
+
+تمام بخش‌های اصلی پروژه پیاده‌سازی و یکپارچه شده‌اند.
+
+🏆 چک‌لیست تکمیل پروژه [x] معماری پروژه [x] Backend API [x] Frontend [x] اتصال Database [x] Authentication [x] Authorization [x] مدیریت هزینه‌ها [x] دسته‌بندی‌ها [x] مدیریت تراکنش‌ها [x] Analytics [x] Dashboard [x] Collaboration [x] API Documentation [x] Validation [x] Security Structure [x] اتصال کامل Frontend و Backend 🗺️ مسیر توسعه FOUNDATION │ ▼ BACKEND + API │ ▼ AUTHENTICATION │ ▼ EXPENSE MANAGEMENT │ ▼ ANALYTICS │ ▼ COLLABORATION │ ▼ ✅ COMPLETED 👨‍💻 تیم توسعه 
+
+
 
 🔥 توسعه‌دهنده Backend @here-is-leo 
 
 Backend Engineering
 
-.NET 8 · ASP.NET Core · EF Core · SQL Server · JWT
+.NET 8
+ASP.NET Core
+Entity Framework Core
+SQL Server
+JWT
+FluentValidation
+
+
 
 ⚛️ توسعه‌دهنده Frontend @taraneh-ghalandarii 
 
 Frontend Engineering
 
-React · Tailwind CSS · React Router
+React
+Tailwind CSS
+React Router
+UI Architecture
+Frontend Development
 
 
-🤝 دو توسعه‌دهنده. یک محصول. 
+🤝 دو توسعه‌دهنده · یک محصول 
 
-📚 مستندات فایل توضیح 📘 API.md قراردادها و Endpointهای API 🤝 CONTRIBUTING.md راهنمای توسعه و مشارکت 🔒 رویکرد امنیتی 
+📚 مستندات 📘 API Contract 
 
-امنیت در این پروژه یک قابلیت تزئینی نیست که آخر کار به README بچسبانیم.
+مستندات Endpointها، ساختار Request و Response و قرارداد API:
 
-ساختار امنیتی پروژه بر پایه موارد زیر طراحی می‌شود:
+docs/API.md
 
-JWT Authentication ↓ Protected Endpoints ↓ Request Validation ↓ Business Logic ↓ EF Core ↓ SQL Server 
+🤝 Contributing Guide 
 
-هدف، ایجاد Backendای است که احراز هویت، اعتبارسنجی، Authorization و جداسازی مسئولیت‌ها را از ابتدا در معماری خود در نظر بگیرد.
+راهنمای توسعه، قوانین مشارکت و استانداردهای پروژه:
 
-📈 وضعیت توسعه 
+docs/CONTRIBUTING.md
 
-🚧 MVP تکمیل شده
+🔒 معماری امنیت 
 
-<div align="center">
+امنیت بخشی از معماری پروژه در نظر گرفته شده است.
 
-### ✅ PROJECT COMPLETED
+Authentication ↓ JWT Tokens ↓ Protected Endpoints ↓ Request Validation ↓ Business Logic ↓ EF Core ↓ SQL Server 💎 اصول مهندسی CLEAN CODE ↓ SEPARATION OF CONCERNS ↓ SECURE BY DESIGN ↓ VALIDATED INPUT ↓ MAINTAINABLE SYSTEM ↓ SCALABLE PRODUCT 
 
-```text
-Architecture      █████████████████████████ 100%
-Backend            █████████████████████████ 100%
-Frontend           █████████████████████████ 100%
-Authentication     █████████████████████████ 100%
-Analytics          █████████████████████████ 100%
-Collaboration      █████████████████████████ 100%
+هدف فقط ساختن برنامه‌ای که «کار کند» نبوده است.
+
+هدف ایجاد یک Codebase قابل فهم، قابل نگهداری، قابل توسعه و قابل گسترش بوده است.
 
 🌟 چشم‌انداز پروژه 
 
-Expense Tracker قرار نیست فقط یک CRUD ساده باشد.
+Expense Tracker قرار نیست صرفاً یک CRUD ساده باشد.
 
-مسیر کلی پروژه:
-
-ثبت ↓ سازمان‌دهی ↓ تحلیل ↓ درک ↓ بهبود 
+ثبت اطلاعات ↓ سازمان‌دهی ↓ تحلیل ↓ درک ↓ بهبود 
 
 دید بهتر نسبت به وضعیت مالی، از داده‌های بهتر شروع می‌شود.
 
-💜 ساخته‌شده با 
-
-ASP.NET Core × React
-.NET 8 × Tailwind CSS
-EF Core × SQL Server
 
 
-💰 هزینه‌ها را ثبت کن. 📊 آن‌ها را بفهم. 🎯 بهتر مدیریتشان کن. 
+💜 ساخته‌شده با .NET 8 × React 
+
+Expense Tracker
 
