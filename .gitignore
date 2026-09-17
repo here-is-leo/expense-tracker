@@ -1,0 +1,46 @@
+# ===== .NET =====
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+*.userosscache
+*.sln.docstates
+*.dll
+*.pdb
+
+# ===== Node / React =====
+node_modules/
+dist/
+build/
+.vite/
+*.local
+npm-debug.log*
+yarn-error.log*
+
+# ===== Environment & Secrets =====
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.Local.json
+*.secrets.json
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Testing =====
+coverage/
+*.coverage
+TestResults/
