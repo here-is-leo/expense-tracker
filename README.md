@@ -1,4 +1,4 @@
-```markdown
+
 <div align="center">
 
 <!-- HERO BANNER (Animated High-End Embedded Vector Engine) -->
@@ -384,4 +384,3 @@ npm run dev
 - قواعد نام‌گذاری Commitها و استراتژی شاخه‌بندی گیت در [راهنمای مشارکت](docs/CONTRIBUTING.md) در دسترس است.
 
 </div>
-```
