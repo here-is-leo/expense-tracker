@@ -21,7 +21,7 @@ expense-tracker/
 ## Team
 
 - Backend: @here-is-leo
-- Frontend: @<teammate-github>
+- Frontend: @<taraneh-ghalandarii>
 
 ## Documentation
 
