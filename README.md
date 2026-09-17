@@ -1,192 +1,726 @@
+💰 Expense Tracker
 
+<div align="center">
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=6C63FF&center=true&vCenter=true&width=800&lines=Track+it.+Understand+it.+Control+it.;A+Modern+Collaborative+Finance+Platform;Built+with+.NET+8+%C3%97+React;Where+Your+Money+Makes+Sense" alt="Typing SVG" />
 
+<br/>
 
+https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white
+https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black
+https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white
+https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white
+https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 
+<br/>
 
-A modern collaborative personal finance platform for tracking, organizing, and understanding expenses.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24,30&height=120&section=header&text=Expense%20Tracker&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=65" width="100%"/>
 
-💰 Expense Tracker 
+</div>
 
-Track it. Understand it. Control it.
+---
 
-Expense Tracker is a complete full-stack personal finance and expense management platform built with ASP.NET Core .NET 8 and React.
+<div align="center">
 
-The system provides a structured environment for managing expenses, organizing transactions, authenticating users, analyzing financial data, and supporting collaborative financial workflows.
+⚡ What Makes It Different?
 
-The project combines a scalable backend architecture with a modern responsive frontend to create a complete finance-management experience.
+</div>
 
-⚡ What Makes It Different? ┌───────────────────────┐ │ YOUR FINANCES │ └───────────┬───────────┘ │ ▼ ┌───────────────────────┐ │ EXPENSE TRACKER │ └───────────┬───────────┘ │ ┌───────────────────────┼───────────────────────┐ │ │ │ ▼ ▼ ▼ 💸 TRACK 📊 ANALYZE 👥 COLLABORATE │ │ │ └───────────────────────┼───────────────────────┘ │ ▼ 🎯 BETTER DECISIONS 
+```
+                    ┌───────────────────────┐
+                    │    YOUR FINANCES      │
+                    └───────────┬───────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │   EXPENSE TRACKER     │
+                    └───────────┬───────────┘
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        │                       │                       │
+        ▼                       ▼                       ▼
+    💸 TRACK               📊 ANALYZE              👥 COLLABORATE
+        │                       │                       │
+        └───────────────────────┼───────────────────────┘
+                                │
+                                ▼
+                     🎯 BETTER DECISIONS
+```
 
-The application was designed around three fundamental goals:
+<div align="center">
 
-Track financial activity accurately Analyze spending patterns clearly Collaborate with other users when needed ✨ Features 
+🎯 Three Fundamental Goals
 
-🔐 Security 💸 Expenses 📊 Analytics 👥 Collaboration JWT Authentication Expense CRUD Spending Analysis Multi-user Protected APIs Categories Statistics Shared Data Authorization Transactions Dashboards Permissions Validation History Trends Collaboration 
+💸 Track 📊 Analyze 👥 Collaborate
+Financial activity, accurately Spending patterns, clearly With others, seamlessly
 
-🔐 Authentication & Security JWT-based authentication Protected API endpoints Authorization Secure authentication flow Password protection Request validation FluentValidation integration Separation of authentication and business logic 💸 Expense Management Create expenses Update expenses Delete expenses View expense history Categorize expenses Track transactions Structured financial records Organized data management 📊 Financial Analytics Spending summaries Category-based analysis Monthly statistics Spending trends Financial dashboards Data visualization Expense breakdowns 👥 Collaboration Multi-user architecture Shared financial workflows Shared expenses Permission management Collaborative financial tracking 🧠 Architecture 
+</div>
 
-┌─────────────────────────────────────────────────────────┐ │ REACT FRONTEND │ │ │ │ Components • Pages • Hooks • Services │ │ React Router │ │ Tailwind CSS │ └───────────────────────────┬─────────────────────────────┘ │ │ HTTP / REST API ▼ ┌─────────────────────────────────────────────────────────┐ │ ASP.NET CORE API │ │ .NET 8 │ │ │ │ Controllers → Services → Business Logic → Validation │ │ │ │ │ ├── JWT │ │ ├── Authorization │ │ └── FluentValidation │ └───────────────────────────┬─────────────────────────────┘ │ │ Entity Framework Core ▼ ┌─────────────────────────────────────────────────────────┐ │ SQL SERVER │ │ │ │ Users • Expenses • Categories • Transactions │ └─────────────────────────────────────────────────────────┘ 
+---
 
-🛠️ Technology Stack 🔷 Backend ASP.NET Core │ ├── .NET 8 ├── Entity Framework Core ├── SQL Server ├── JWT Authentication └── FluentValidation Technology Purpose ⚡ ASP.NET Core REST API 🔷 .NET 8 Backend framework 🗄️ Entity Framework Core ORM / Data access 🛢️ SQL Server Database 🔑 JWT Authentication ✅ FluentValidation Input validation ⚛️ Frontend React │ ├── Components ├── Pages ├── Hooks ├── Services └── React Router │ ▼ Tailwind CSS Technology Purpose ⚛️ React Frontend framework 🎨 Tailwind CSS UI styling 🧭 React Router Routing 📂 Project Structure expense-tracker/ │ ├── backend/ │ │ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ │ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ │ │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🔌 API Flow FRONTEND │ ▼ ┌─────────────┐ │ React Router│ └──────┬──────┘ │ ▼ ┌─────────────┐ │ API Service │ └──────┬──────┘ │ │ HTTP ▼ ┌─────────────┐ │ Controllers │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ Services │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ EF Core │ └──────┬──────┘ │ ▼ ┌─────────────┐ │ SQL Server │ └─────────────┘ 📈 Project Completion 
+<div align="center">
 
+✨ Features
 
+</div>
 
-Architecture █████████████████████████ 100% Backend █████████████████████████ 100% Frontend █████████████████████████ 100% Authentication █████████████████████████ 100% Analytics █████████████████████████ 100% Collaboration █████████████████████████ 100% ✅ PROJECT COMPLETED 
+<table>
+<tr>
+<td width="25%" align="center">
 
-All core components have been implemented and integrated.
+🔐 Security
 
-🏆 Completion Checklist [x] Project Architecture [x] Backend API [x] Frontend Application [x] Database Integration [x] Authentication [x] Authorization [x] Expense Management [x] Categories [x] Transaction Management [x] Analytics [x] Dashboard [x] Collaboration [x] API Documentation [x] Validation [x] Security Structure [x] Frontend / Backend Integration 🗺️ Development Journey ┌──────────────┐ │ FOUNDATION │ └──────┬───────┘ │ ▼ ┌──────────────────┐ │ BACKEND + API │ └────────┬─────────┘ │ ▼ ┌────────────────────┐ │ AUTHENTICATION │ └──────────┬─────────┘ │ ▼ ┌──────────────────────┐ │ EXPENSE MANAGEMENT │ └───────────┬──────────┘ │ ▼ ┌────────────────┐ │ ANALYTICS │ └───────┬────────┘ │ ▼ ┌────────────────────┐ │ COLLABORATION │ └──────────┬─────────┘ │ ▼ ┌────────────────┐ │ COMPLETED ✓ │ └────────────────┘ 👨‍💻 Development Team 
+JWT Authentication
 
+Protected APIs
 
+Authorization
 
-🔥 Backend Developer @here-is-leo 
-
-Backend Engineering
-
-.NET 8
-ASP.NET Core
-Entity Framework Core
-SQL Server
-JWT
 FluentValidation
 
+Password Protection
+
+</td>
+<td width="25%" align="center">
+
+💸 Expenses
+
+Full CRUD
+
+Categories
+
+Transactions
+
+History Tracking
+
+Structured Records
+
+</td>
+<td width="25%" align="center">
+
+📊 Analytics
+
+Spending Analysis
+
+Statistics
+
+Dashboards
+
+Trends & Breakdowns
+
+Data Visualization
+
+</td>
+<td width="25%" align="center">
+
+👥 Collaboration
+
+Multi-user
+
+Shared Data
+
+Permissions
+
+Shared Expenses
+
+Team Workflows
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+🧠 System Architecture
+
+</div>
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    ⚛️  REACT FRONTEND                       │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │  Components • Pages • Hooks • Services               │   │
+│  │  React Router  •  Tailwind CSS                       │   │
+│  └──────────────────────────────────────────────────────┘   │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           │  🌐 HTTP / REST API
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  🔷  ASP.NET CORE API (.NET 8)              │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │  Controllers → Services → Business Logic → Validation│   │
+│  │                                                      │   │
+│  │     🔑 JWT    •    🛡️ Authorization    •    ✅ Fluent│   │
+│  └──────────────────────────────────────────────────────┘   │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           │  🗄️ Entity Framework Core
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    🛢️  SQL SERVER                           │
+│       Users • Expenses • Categories • Transactions          │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+<div align="center">
+
+🛠️ Technology Stack
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+🔷 Backend
+
+https://img.shields.io/badge/ASP.NET_Core-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/.NET_8-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/EF_Core-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white
+https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white
+
+Tech Purpose
+⚡ ASP.NET Core REST API
+🔷 .NET 8 Backend framework
+🗄️ EF Core ORM / Data Access
+🛢️ SQL Server Database
+🔑 JWT Authentication
+✅ FluentValidation Input validation
+
+</td>
+<td valign="top" width="50%">
+
+⚛️ Frontend
+
+https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black
+https://img.shields.io/badge/Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white
+https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white
+
+Tech Purpose
+⚛️ React Frontend framework
+🎨 Tailwind CSS UI styling
+🧭 React Router Routing
+🪝 Hooks State & logic
+📡 Services API integration
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+📂 Project Structure
+
+</div>
+
+```
+📦 expense-tracker/
+│
+├── 🔷 backend/
+│   ├── 🎮 Controllers/
+│   ├── 📋 Models/
+│   ├── 📦 DTOs/
+│   ├── ⚙️ Services/
+│   ├── ✅ Validators/
+│   ├── 🗄️ Data/
+│   └── ...
+│
+├── ⚛️ frontend/
+│   └── 📁 src/
+│       ├── 🧩 components/
+│       ├── 📄 pages/
+│       ├── 📡 services/
+│       ├── 🪝 hooks/
+│       └── ...
+│
+├── 📚 docs/
+│   ├── 📘 API.md
+│   └── 🤝 CONTRIBUTING.md
+│
+└── 📖 README.md
+```
+
+---
+
+<div align="center">
+
+🔌 API Request Flow
+
+</div>
+
+```
+    ⚛️ FRONTEND
+         │
+         ▼
+   ┌─────────────┐
+   │React Router │
+   └──────┬──────┘
+          │
+          ▼
+   ┌─────────────┐
+   │API Services │
+   └──────┬──────┘
+          │
+          │ 🌐 HTTP
+          ▼
+   ┌─────────────┐
+   │ Controllers │
+   └──────┬──────┘
+          │
+          ▼
+   ┌─────────────┐
+   │  Services   │
+   └──────┬──────┘
+          │
+          ▼
+   ┌─────────────┐
+   │   EF Core   │
+   └──────┬──────┘
+          │
+          ▼
+   ┌─────────────┐
+   │ SQL Server  │
+   └─────────────┘
+```
+
+---
+
+<div align="center">
+
+🗺️ Development Journey
+
+</div>
+
+```
+  ┌──────────────┐
+  │  FOUNDATION  │
+  └──────┬───────┘
+         ▼
+  ┌──────────────┐
+  │ BACKEND + API│
+  └──────┬───────┘
+         ▼
+  ┌──────────────┐
+  │AUTHENTICATION│
+  └──────┬───────┘
+         ▼
+  ┌──────────────────┐
+  │EXPENSE MANAGEMENT│
+  └──────┬───────────┘
+         ▼
+  ┌──────────────┐
+  │  ANALYTICS   │
+  └──────┬───────┘
+         ▼
+  ┌──────────────┐
+  │COLLABORATION │
+  └──────┬───────┘
+         ▼
+  ┌──────────────┐
+  │  COMPLETED ✓ │
+  └──────────────┘
+```
+
+---
+
+<div align="center">
+
+📈 Project Completion
+
+Module Status
+🏗️ Architecture https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+🔷 Backend https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+⚛️ Frontend https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+🔐 Authentication https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+📊 Analytics https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+👥 Collaboration https://geps.dev/progress/100?dangerColor=00C853&warningColor=00C853&successColor=00C853
+
+✅ PROJECT COMPLETED
+
+</div>
+
+---
+
+<div align="center">
+
+🏆 Completion Checklist
+
+</div>
+
+<table align="center">
+<tr>
+<td>
+
+☑ 🏗️ Project Architecture
+☑ 🔷 Backend API
+☑ ⚛️ Frontend Application
+☑ 🗄️ Database Integration
+☑ 🔐 Authentication
+☑ 🛡️ Authorization
+☑ 💸 Expense Management
+☑ 📂 Categories
+
+</td>
+<td>
+
+☑ 🔄 Transaction Management
+☑ 📊 Analytics
+☑ 📈 Dashboard
+☑ 👥 Collaboration
+☑ 📘 API Documentation
+☑ ✅ Validation
+☑ 🔒 Security Structure
+☑ 🔗 Frontend / Backend Integration
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+👨‍💻 Development Team
+
+🤝 Two Developers · One Product
+
+<table>
+<tr>
+
+<td align="center" width="50%">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=100&text=Backend%20%26%20Architect&fontSize=22&fontColor=ffffff&animation=fadeIn" width="90%"/>
+
+<br/>
+
+🔥 ایلیا فراهانی
+
+Backend Developer & Architect
+
+<a href="https://github.com/here-is-leo">
+<img src="https://img.shields.io/badge/GitHub-here--is--leo-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
 
 
-⚛️ Frontend Developer @taraneh-ghalandarii 
-
-Frontend Engineering
-
-React
-Tailwind CSS
-React Router
-UI Architecture
-Frontend Development
 
 
-🤝 TWO DEVELOPERS · ONE PRODUCT 
 
-📚 Documentation 📘 API Contract 
+https://img.shields.io/badge/.NET_8-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/ASP.NET_Core-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/EF_Core-512BD4?style=flat-square&logo=dotnet&logoColor=white
+https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white
+https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white
+https://img.shields.io/badge/FluentValidation-00A98F?style=flat-square
 
-Detailed API endpoints, request structures, responses, and contracts:
+<sub>Backend Engineering · System Architecture · API Design</sub>
 
-docs/API.md
+</td>
 
-🤝 Contributing Guide 
+<td align="center" width="50%">
 
-Development workflow, contribution rules, and project conventions:
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=24,20,12&height=100&text=Frontend%20%26%20Design&fontSize=22&fontColor=ffffff&animation=fadeIn" width="90%"/>
 
-docs/CONTRIBUTING.md
+<br/>
 
-🔒 Security 
+⚛️ ترانه قلندری
 
-Security was considered as part of the application's architecture.
+Frontend Developer · UI/UX Designer
 
-Authentication │ ▼ JWT Tokens │ ▼ Protected Endpoints │ ▼ Request Validation │ ▼ Business Logic │ ▼ EF Core │ ▼ SQL Server 
+<a href="https://github.com/taraneh-ghalandarii">
+<img src="https://img.shields.io/badge/GitHub-taraneh--ghalandarii-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+
+
+
+
+https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black
+https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white
+https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white
+https://img.shields.io/badge/UI%2FUX-FF61F6?style=flat-square&logo=figma&logoColor=white
+
+<sub>Frontend Engineering · UI Architecture · Design System</sub>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+📚 Documentation
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+📘 API Contract
+
+Detailed API endpoints, request structures, responses, and contracts.
+
+📂 docs/API.md
+
+</td>
+<td align="center" width="50%">
+
+🤝 Contributing Guide
+
+Development workflow, contribution rules, and project conventions.
+
+📂 docs/CONTRIBUTING.md
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+🔒 Security Architecture
+
+</div>
+
+```
+        🔐 Authentication
+              │
+              ▼
+        🔑 JWT Tokens
+              │
+              ▼
+        🛡️ Protected Endpoints
+              │
+              ▼
+        ✅ Request Validation
+              │
+              ▼
+        ⚙️ Business Logic
+              │
+              ▼
+        🗄️ EF Core
+              │
+              ▼
+        🛢️ SQL Server
+```
+
+<div align="center">
 
 The architecture separates authentication, authorization, validation, business logic, and persistence responsibilities.
 
-💎 Engineering Principles CLEAN CODE │ ▼ SEPARATION OF CONCERNS │ ▼ SECURE BY DESIGN │ ▼ VALIDATED INPUT │ ▼ MAINTAINABLE SYSTEM │ ▼ SCALABLE PRODUCT 
+</div>
+
+---
+
+<div align="center">
+
+💎 Engineering Principles
+
+```
+  ✨ CLEAN CODE
+        │
+        ▼
+  🧩 SEPARATION OF CONCERNS
+        │
+        ▼
+  🔒 SECURE BY DESIGN
+        │
+        ▼
+  ✅ VALIDATED INPUT
+        │
+        ▼
+  🛠️ MAINTAINABLE SYSTEM
+        │
+        ▼
+  🚀 SCALABLE PRODUCT
+```
 
 The objective was not simply to make the application work.
-
 The objective was to create a codebase that can be understood, maintained, extended, and evolved.
 
-🌟 Project Vision 
+</div>
 
-Expense Tracker was built to go beyond a basic CRUD application.
+---
 
-RECORD ↓ ORGANIZE ↓ ANALYZE ↓ UNDERSTAND ↓ IMPROVE 
+<div align="center">
+
+🌟 Project Vision
+
+</div>
+
+```
+  📝 RECORD
+      ↓
+  🗂️ ORGANIZE
+      ↓
+  📊 ANALYZE
+      ↓
+  💡 UNDERSTAND
+      ↓
+  📈 IMPROVE
+```
+
+<div align="center">
 
 Better financial decisions start with better financial visibility.
 
+</div>
 
+---
 
-💜 Built with .NET 8 × React 
+<div align="center">
 
-Expense Tracker
+💜 Built with .NET 8 × React
 
-🇮🇷 نسخه فارسی 
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24,30&height=150&section=footer&text=Expense%20Tracker&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=75" width="100%"/>
 
-💰 Expense Tracker 
+Track it. Understand it. Control it.
+
+</div>
+
+---
+
+<div align="center" dir="rtl">
+
+💰 Expense Tracker
 
 هزینه‌ها را ثبت کن. بفهم. کنترل کن.
+
+<img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&weight=700&size=22&duration=3000&pause=800&color=6C63FF&center=true&vCenter=true&width=700&lines=%D9%87%D8%B2%DB%8C%D9%86%D9%87%E2%80%8C%D9%87%D8%A7+%D8%B1%D8%A7+%D8%AB%D8%A8%D8%AA+%DA%A9%D9%86.;%D8%A8%D9%81%D9%87%D9%85.;%D8%AA%D8%AD%D9%84%DB%8C%D9%84+%DA%A9%D9%86.;%DA%A9%D9%86%D8%AA%D8%B1%D9%84+%DA%A9%D9%86." alt="Typing SVG"/>
+
+</div>
+
+<div dir="rtl">
 
 Expense Tracker یک پلتفرم کامل Full-Stack برای مدیریت هزینه‌ها و امور مالی شخصی است که با ASP.NET Core .NET 8 و React ساخته شده است.
 
 این سیستم محیطی ساختاریافته برای مدیریت هزینه‌ها، سازمان‌دهی تراکنش‌ها، احراز هویت کاربران، تحلیل اطلاعات مالی و همکاری بین کاربران فراهم می‌کند.
 
-⚡ ویژگی اصلی پروژه امور مالی شما │ ▼ Expense Tracker │ ┌───────────────┼───────────────┐ ▼ ▼ ▼ 💸 مدیریت 📊 تحلیل 👥 همکاری هزینه‌ها اطلاعات کاربران │ │ │ └───────────────┼───────────────┘ ▼ تصمیم‌گیری بهتر ✨ قابلیت‌ها 🔐 امنیت 💸 هزینه‌ها 📊 تحلیل 👥 همکاری JWT CRUD تحلیل مخارج چندکاربره API محافظت‌شده دسته‌بندی آمار داده مشترک Authorization تراکنش‌ها داشبورد Permission Validation تاریخچه روندها همکاری 🔐 احراز هویت و امنیت احراز هویت مبتنی بر JWT Endpointهای محافظت‌شده Authorization مدیریت امن احراز هویت محافظت از رمز عبور اعتبارسنجی درخواست‌ها استفاده از FluentValidation جداسازی منطق احراز هویت از Business Logic 💸 مدیریت هزینه‌ها ایجاد هزینه ویرایش هزینه حذف هزینه مشاهده تاریخچه دسته‌بندی هزینه‌ها مدیریت تراکنش‌ها ذخیره اطلاعات مالی ساختاریافته 📊 تحلیل مالی خلاصه مخارج تحلیل دسته‌بندی‌ها آمار ماهانه بررسی روند هزینه‌ها داشبورد مالی نمایش بصری داده‌ها تفکیک هزینه‌ها 👥 همکاری معماری چندکاربره مدیریت اطلاعات مشترک هزینه‌های مشترک مدیریت Permission مدیریت مالی مشارکتی 🧠 معماری سیستم ┌───────────────────────────────────────┐ │ React Frontend │ │ │ │ Components • Pages • Hooks • Services │ │ React Router │ │ Tailwind CSS │ └──────────────────┬────────────────────┘ │ │ REST API ▼ ┌───────────────────────────────────────┐ │ ASP.NET Core API │ │ .NET 8 │ │ │ │ Controllers → Services → Logic │ │ │ │ JWT • Authorization • Validation │ └──────────────────┬────────────────────┘ │ │ EF Core ▼ ┌───────────────────────────────────────┐ │ SQL Server │ │ │ │ Users • Expenses • Categories │ │ Transactions │ └───────────────────────────────────────┘ 🛠️ تکنولوژی‌ها 🔷 Backend تکنولوژی کاربرد ⚡ ASP.NET Core REST API 🔷 .NET 8 Framework اصلی 🗄️ Entity Framework Core ORM و Data Access 🛢️ SQL Server پایگاه داده 🔑 JWT احراز هویت ✅ FluentValidation اعتبارسنجی ⚛️ Frontend تکنولوژی کاربرد ⚛️ React ساخت رابط کاربری 🎨 Tailwind CSS طراحی رابط 🧭 React Router مسیریابی 📂 ساختار پروژه expense-tracker/ │ ├── backend/ │ ├── Controllers/ │ ├── Models/ │ ├── DTOs/ │ ├── Services/ │ ├── Validators/ │ ├── Data/ │ └── ... │ ├── frontend/ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ ├── hooks/ │ │ └── ... │ └── ... │ ├── docs/ │ ├── API.md │ └── CONTRIBUTING.md │ └── README.md 🔌 جریان ارتباط Frontend و Backend FRONTEND │ ▼ React Router │ ▼ API Services │ │ HTTP ▼ ASP.NET Core │ ▼ Services │ ▼ EF Core │ ▼ SQL Server 📈 وضعیت نهایی پروژه 
+⚡ ویژگی اصلی پروژه
 
+```
+              💰 امور مالی شما
+                     │
+                     ▼
+             💎 Expense Tracker
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   💸 مدیریت     📊 تحلیل     👥 همکاری
+     هزینه‌ها       اطلاعات      کاربران
+        │            │            │
+        └────────────┼────────────┘
+                     ▼
+              🎯 تصمیم‌گیری بهتر
+```
 
+✨ قابلیت‌ها
 
-Architecture █████████████████████████ 100% Backend █████████████████████████ 100% Frontend █████████████████████████ 100% Authentication █████████████████████████ 100% Analytics █████████████████████████ 100% Collaboration █████████████████████████ 100% ✅ پروژه تکمیل شده است 
+🔐 امنیت 💸 هزینه‌ها 📊 تحلیل 👥 همکاری
+JWT CRUD کامل تحلیل مخارج چندکاربره
+API محافظت‌شده دسته‌بندی آمار داده مشترک
+Authorization تراکنش‌ها داشبورد Permission
+Validation تاریخچه روندها همکاری
 
-تمام بخش‌های اصلی پروژه پیاده‌سازی و یکپارچه شده‌اند.
+🔐 احراز هویت و امنیت
 
-🏆 چک‌لیست تکمیل پروژه [x] معماری پروژه [x] Backend API [x] Frontend [x] اتصال Database [x] Authentication [x] Authorization [x] مدیریت هزینه‌ها [x] دسته‌بندی‌ها [x] مدیریت تراکنش‌ها [x] Analytics [x] Dashboard [x] Collaboration [x] API Documentation [x] Validation [x] Security Structure [x] اتصال کامل Frontend و Backend 🗺️ مسیر توسعه FOUNDATION │ ▼ BACKEND + API │ ▼ AUTHENTICATION │ ▼ EXPENSE MANAGEMENT │ ▼ ANALYTICS │ ▼ COLLABORATION │ ▼ ✅ COMPLETED 👨‍💻 تیم توسعه 
+· احراز هویت مبتنی بر JWT
+· Endpointهای محافظت‌شده
+· مدیریت امن احراز هویت
+· اعتبارسنجی با FluentValidation
+· جداسازی منطق احراز هویت از Business Logic
 
+🧠 معماری سیستم
 
+```
+┌─────────────────────────────────────────┐
+│       ⚛️  React Frontend                │
+│  Components • Pages • Hooks • Services  │
+└────────────────┬────────────────────────┘
+                 │ 🌐 REST API
+                 ▼
+┌─────────────────────────────────────────┐
+│       🔷  ASP.NET Core API (.NET 8)     │
+│  Controllers → Services → Logic         │
+└────────────────┬────────────────────────┘
+                 │ 🗄️ EF Core
+                 ▼
+┌─────────────────────────────────────────┐
+│          🛢️  SQL Server                 │
+│  Users • Expenses • Categories          │
+└─────────────────────────────────────────┘
+```
 
-🔥 توسعه‌دهنده Backend @here-is-leo 
+👨‍💻 تیم توسعه
 
-Backend Engineering
+<div align="center">
 
-.NET 8
-ASP.NET Core
-Entity Framework Core
-SQL Server
-JWT
-FluentValidation
+<table>
+<tr>
+<td align="center" width="50%">
 
+🔥 ایلیا فراهانی
 
+توسعه‌دهنده Backend و معمار
 
-⚛️ توسعه‌دهنده Frontend @taraneh-ghalandarii 
+<a href="https://github.com/here-is-leo">
+<img src="https://img.shields.io/badge/GitHub-here--is--leo-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
 
-Frontend Engineering
+</td>
+<td align="center" width="50%">
 
-React
-Tailwind CSS
-React Router
-UI Architecture
-Frontend Development
+⚛️ ترانه قلندری
 
+توسعه‌دهنده Frontend و طراح UI/UX
 
-🤝 دو توسعه‌دهنده · یک محصول 
+<a href="https://github.com/taraneh-ghalandarii">
+<img src="https://img.shields.io/badge/GitHub-taraneh--ghalandarii-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
 
-📚 مستندات 📘 API Contract 
+</td>
+</tr>
+</table>
 
-مستندات Endpointها، ساختار Request و Response و قرارداد API:
+🤝 دو توسعه‌دهنده · یک محصول
 
-docs/API.md
+</div>
 
-🤝 Contributing Guide 
+🌟 چشم‌انداز پروژه
 
-راهنمای توسعه، قوانین مشارکت و استانداردهای پروژه:
-
-docs/CONTRIBUTING.md
-
-🔒 معماری امنیت 
-
-امنیت بخشی از معماری پروژه در نظر گرفته شده است.
-
-Authentication ↓ JWT Tokens ↓ Protected Endpoints ↓ Request Validation ↓ Business Logic ↓ EF Core ↓ SQL Server 💎 اصول مهندسی CLEAN CODE ↓ SEPARATION OF CONCERNS ↓ SECURE BY DESIGN ↓ VALIDATED INPUT ↓ MAINTAINABLE SYSTEM ↓ SCALABLE PRODUCT 
-
-هدف فقط ساختن برنامه‌ای که «کار کند» نبوده است.
-
-هدف ایجاد یک Codebase قابل فهم، قابل نگهداری، قابل توسعه و قابل گسترش بوده است.
-
-🌟 چشم‌انداز پروژه 
-
-Expense Tracker قرار نیست صرفاً یک CRUD ساده باشد.
-
-ثبت اطلاعات ↓ سازمان‌دهی ↓ تحلیل ↓ درک ↓ بهبود 
+```
+  📝 ثبت  →  🗂️ سازمان‌دهی  →  📊 تحلیل  →  💡 درک  →  📈 بهبود
+```
 
 دید بهتر نسبت به وضعیت مالی، از داده‌های بهتر شروع می‌شود.
 
+<div align="center">
 
+💜 ساخته‌شده با .NET 8 × React
 
-💜 ساخته‌شده با .NET 8 × React 
+</div>
 
-Expense Tracker
+</div>
 
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24,30&height=100&section=footer" width="100%"/>
+
+⭐ اگر این پروژه را دوست داشتید، به آن ستاره بدهید! ⭐
+
+</div>
