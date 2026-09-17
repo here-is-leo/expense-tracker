@@ -1,4 +1,4 @@
-# Expense Tracker
+i# Expense Tracker
 
 A collaborative personal finance / expense management application.
 
@@ -21,7 +21,7 @@ expense-tracker/
 ## Team
 
 - Backend: @here-is-leo
-- Frontend: @<taraneh-ghalandarii>
+- Frontend: @taraneh-ghalandarii
 
 ## Documentation
 
