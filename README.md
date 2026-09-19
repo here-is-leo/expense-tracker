@@ -1,6 +1,12 @@
-
 <!-- English Version -->
 
+<div align="center">
+
+<img src="assets/expense-tracker-poster.png" alt="Expense Tracker — Full-stack personal finance application poster" width="100%" />
+
+<br />
+
+</div>
 <div align="center">
 
 **[English](#-expense-tracker) | [فارسی](#-ردیاب-هزینه)**
@@ -779,4 +785,3 @@ docker compose up --build
 </div>
 
 </div>
-```
