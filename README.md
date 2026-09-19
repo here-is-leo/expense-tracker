@@ -1,4 +1,4 @@
-```markdown
+
 <!-- English Version -->
 
 <div align="center">
