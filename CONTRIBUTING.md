@@ -579,7 +579,7 @@ Closes #ISSUE_NUMBER
 ## Notes
 
 List known limitations, migrations, or follow-up tasks.
-```
+
 
 ### Review expectations
 
@@ -650,7 +650,7 @@ Explain what happens instead.
 ## Additional Context
 
 Add screenshots, sanitized logs, or other useful information.
-```
+
 
 Never include passwords, access tokens, private financial information, or production connection strings.
 
@@ -696,7 +696,7 @@ List other approaches that were considered.
 ## Additional Context
 
 Add mockups, diagrams, or examples if useful.
-```
+
 
 Large features should be discussed and approved before implementation.
 
