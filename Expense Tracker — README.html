@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Expense Tracker — README</title>
+<style>
+  :root{
+    --bg-0:#0B1224;
+    --bg-1:#0E1730;
+    --panel:#111A34;
+    --panel-2:#17243B;
+    --panel-3:#1D2E47;
+    --stroke:#26385A;
+    --stroke-soft:#1E2C46;
+    --text-hi:#F5FAFF;
+    --text-mid:#CFD9E9;
+    --text-lo:#8CA0BC;
+    --text-dim:#6C7F9C;
+    --mint:#55E6B5;
+    --cyan:#4CC9F0;
+    --amber:#FFC38B;
+    --amber-2:#F5B87E;
+    --red:#F87171;
+    --code-bg:#0A0F20;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:9px;
+    --maxw:920px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 14% 8%, rgba(76,201,240,.10), transparent 45%),
+      radial-gradient(circle at 88% 62%, rgba(85,230,181,.08), transparent 42%),
+      var(--bg-0);
+    color:var(--text-mid);
+    font-family:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  a{color:inherit;}
+  ::selection{background:rgba(85,230,181,.28); color:#fff;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px 96px;}
+
+  /* ---------- Lang toggle ---------- */
+  .langbar{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:blur(14px);
+    background:rgba(11,18,36,.78);
+    border-bottom:1px solid var(--stroke-soft);
+  }
+  .langbar-inner{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brandmark{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--text-hi); font-size:14px; letter-spacing:.2px;}
+  .brandmark .dot{width:9px; height:9px; border-radius:50%; background:linear-gradient(135deg,var(--mint),var(--cyan)); box-shadow:0 0 12px rgba(85,230,181,.6);}
+  .langtoggle{display:flex; background:var(--panel-2); border:1px solid var(--stroke); border-radius:999px; padding:3px; gap:2px;}
+  .langtoggle button{
+    appearance:none; border:none; background:transparent; color:var(--text-lo);
+    font-family:inherit; font-size:13px; font-weight:600; padding:7px 16px; border-radius:999px;
+    cursor:pointer; transition:.2s ease;
+  }
+  .langtoggle button.active{background:linear-gradient(135deg,var(--mint),var(--cyan)); color:#062018;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 8px;}
+  .banner-frame{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid var(--stroke);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.55);
+    margin-bottom:40px;
+  }
+  .banner-frame img{display:block; width:100%; height:auto;}
+
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
+  .pill{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:600; color:var(--text-mid);
+    background:var(--panel-2); border:1px solid var(--stroke);
+    padding:6px 13px; border-radius:999px;
+  }
+  .pill.on{color:#B7F5DE; border-color:rgba(85,230,181,.35); background:rgba(85,230,181,.08);}
+  .pill .sq{width:6px; height:6px; border-radius:2px; background:var(--mint);}
+
+  h1.title{
+    font-size:clamp(34px,5vw,50px);
+    line-height:1.06;
+    letter-spacing:-1.4px;
+    color:var(--text-hi);
+    font-weight:800;
+    margin:0 0 16px;
+  }
+  h1.title .grad{
+    background:linear-gradient(120deg,var(--mint),var(--cyan));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{
+    font-size:18px; color:var(--text-mid); max-width:56ch; margin:0 0 32px; font-weight:400;
+  }
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:8px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:inherit; font-size:14.5px; font-weight:700;
+    padding:12px 20px; border-radius:11px; text-decoration:none;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--mint),var(--cyan)); color:#062018;}
+  .btn-ghost{background:var(--panel-2); border-color:var(--stroke); color:var(--text-hi);}
+
+  /* ---------- Section shell ---------- */
+  section{padding:64px 0 0;}
+  section:first-of-type{padding-top:8px;}
+  .eyebrow{
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; font-weight:700; color:var(--text-dim);
+    margin-bottom:10px;
+  }
+  .eyebrow .num{
+    width:22px; height:22px; border-radius:6px;
+    background:var(--panel-3); border:1px solid var(--stroke);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; color:var(--mint); font-weight:800;
+  }
+  h2{
+    font-size:28px; color:var(--text-hi); font-weight:800; letter-spacing:-.6px;
+    margin:0 0 8px;
+  }
+  .section-sub{color:var(--text-lo); font-size:15.5px; max-width:62ch; margin:0 0 32px;}
+
+  /* ---------- Stat / feature grid ---------- */
+  .grid{display:grid; gap:14px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:720px){ .grid-2,.grid-3{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--panel); border:1px solid var(--stroke-soft);
+    border-radius:var(--radius-md); padding:22px;
+  }
+  .feat-card .icon{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--panel-3); border:1px solid var(--stroke); margin-bottom:14px;
+    font-size:17px;
+  }
+  .feat-card h3{font-size:15.5px; color:var(--text-hi); margin:0 0 6px; font-weight:700;}
+  .feat-card p{font-size:13.8px; color:var(--text-lo); margin:0; line-height:1.55;}
+
+  /* ---------- Checklist ---------- */
+  .checklist{display:flex; flex-direction:column; gap:0;}
+  .check-row{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:13px 4px; border-bottom:1px solid var(--stroke-soft);
+  }
+  .check-row:last-child{border-bottom:none;}
+  .check-mark{
+    flex:0 0 auto; width:20px; height:20px; border-radius:6px; margin-top:1px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(85,230,181,.12); border:1px solid rgba(85,230,181,.4);
+    color:var(--mint); font-size:12px; font-weight:900;
+  }
+  .check-text{font-size:14.5px; color:var(--text-mid);}
+  .check-text b{color:var(--text-hi); font-weight:600;}
+
+  /* ---------- Stack ---------- */
+  .stack-table{width:100%; border-collapse:collapse; font-size:14px;}
+  .stack-table tr{border-bottom:1px solid var(--stroke-soft);}
+  .stack-table tr:last-child{border-bottom:none;}
+  .stack-table td{padding:14px 8px; vertical-align:top;}
+  .stack-table td.lbl{color:var(--text-dim); font-weight:700; font-size:12.5px; letter-spacing:.4px; text-transform:uppercase; white-space:nowrap; width:150px;}
+  .tag{
+    display:inline-block; font-size:13px; font-weight:600; color:var(--text-mid);
+    background:var(--panel-3); border:1px solid var(--stroke);
+    padding:5px 11px; border-radius:7px; margin:3px 6px 3px 0;
+  }
+
+  /* ---------- Architecture diagram ---------- */
+  .diagram{
+    background:var(--panel-2); border:1px solid var(--stroke);
+    border-radius:var(--radius-md); padding:32px 24px;
+    overflow-x:auto;
+  }
+  .diagram-row{display:flex; align-items:center; gap:0; min-width:600px; justify-content:center;}
+  .node{
+    background:var(--panel-3); border:1px solid var(--stroke);
+    border-radius:12px; padding:16px 20px; text-align:center; min-width:118px;
+  }
+  .node .node-title{font-size:13.5px; font-weight:700; color:var(--text-hi);}
+  .node .node-sub{font-size:11px; color:var(--text-dim); margin-top:3px;}
+  .node.accent{border-color:rgba(85,230,181,.4); background:rgba(85,230,181,.06);}
+  .node.accent .node-title{color:#B7F5DE;}
+  .arrow{
+    flex:0 0 auto; width:42px; height:2px; background:linear-gradient(90deg,var(--mint),var(--cyan));
+    position:relative; margin:0 6px;
+  }
+  .arrow::after{
+    content:""; position:absolute; right:-1px; top:50%; transform:translateY(-50%);
+    border-left:6px solid var(--cyan); border-top:4px solid transparent; border-bottom:4px solid transparent;
+  }
+  .diagram-note{font-size:13px; color:var(--text-lo); margin-top:22px; padding-top:18px; border-top:1px solid var(--stroke-soft); text-align:center;}
+  @media (max-width:600px){
+    .diagram-row{flex-direction:column; min-width:0;}
+    .arrow{width:2px; height:26px; margin:4px 0;}
+    .arrow::after{right:50%; top:auto; bottom:-1px; transform:translateX(50%) rotate(90deg);}
+  }
+
+  /* ---------- Code blocks ---------- */
+  .code-block{
+    background:var(--code-bg); border:1px solid var(--stroke-soft);
+    border-radius:var(--radius-md); overflow:hidden; margin:14px 0 26px;
+  }
+  .code-head{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 16px; border-bottom:1px solid var(--stroke-soft);
+    background:rgba(255,255,255,.015);
+  }
+  .code-head .dots{display:flex; gap:6px;}
+  .code-head .dots span{width:9px; height:9px; border-radius:50%;}
+  .code-head .dots span:nth-child(1){background:#F87171;}
+  .code-head .dots span:nth-child(2){background:#FBBF24;}
+  .code-head .dots span:nth-child(3){background:#54D8A9;}
+  .code-head .fname{font-size:12px; color:var(--text-dim); margin-left:4px; font-family:"SF Mono","Fira Code",ui-monospace,monospace;}
+  pre{margin:0; padding:18px 20px; overflow-x:auto;}
+  code{
+    font-family:"SF Mono","Fira Code",ui-monospace,Consolas,monospace;
+    font-size:13.3px; line-height:1.7; color:#CFEFE1;
+  }
+  .c-cmt{color:#5F7490;}
+  .c-key{color:#7FD8F2;}
+  .c-str{color:#FFC38B;}
+  .c-mint{color:#55E6B5;}
+
+  /* ---------- Step list ---------- */
+  .steps{counter-reset:step; display:flex; flex-direction:column; gap:0;}
+  .step{
+    display:flex; gap:16px; padding:20px 0;
+    border-bottom:1px solid var(--stroke-soft);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    counter-increment:step; flex:0 0 auto;
+    width:30px; height:30px; border-radius:9px;
+    background:var(--panel-3); border:1px solid var(--stroke);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:800; color:var(--mint);
+  }
+  .step-num::before{content:counter(step);}
+  .step-body h4{margin:2px 0 4px; font-size:15px; color:var(--text-hi); font-weight:700;}
+  .step-body p{margin:0; font-size:14px; color:var(--text-lo);}
+
+  /* ---------- API table ---------- */
+  .api-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  .api-table thead th{
+    text-align:left; font-size:11.5px; letter-spacing:.5px; text-transform:uppercase;
+    color:var(--text-dim); padding:0 12px 12px; font-weight:700;
+  }
+  .api-table tbody tr{background:var(--panel); }
+  .api-table tbody tr td{padding:14px 12px; border-top:1px solid var(--stroke-soft);}
+  .api-table tbody tr td:first-child{border-radius:0;}
+  .method{
+    display:inline-block; font-size:11px; font-weight:800; padding:3px 9px; border-radius:6px;
+    font-family:"SF Mono",ui-monospace,monospace; letter-spacing:.3px;
+  }
+  .m-get{color:#8FE3C0; background:rgba(85,230,181,.12); border:1px solid rgba(85,230,181,.3);}
+  .m-post{color:#8FCBFF; background:rgba(76,201,240,.12); border:1px solid rgba(76,201,240,.3);}
+  .m-put{color:#FFD897; background:rgba(255,195,139,.14); border:1px solid rgba(255,195,139,.32);}
+  .m-del{color:#FFAFAF; background:rgba(248,113,113,.12); border:1px solid rgba(248,113,113,.3);}
+  .api-table code{font-size:13px; color:var(--text-hi); background:none; padding:0;}
+  .api-table td.purpose{color:var(--text-lo);}
+
+  /* ---------- Security list ---------- */
+  .sec-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:640px){.sec-grid{grid-template-columns:1fr;}}
+  .sec-item{
+    display:flex; gap:12px; padding:16px; background:var(--panel);
+    border:1px solid var(--stroke-soft); border-radius:var(--radius-sm);
+  }
+  .sec-item .sec-ico{
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px;
+    background:rgba(76,201,240,.1); border:1px solid rgba(76,201,240,.3);
+    display:flex; align-items:center; justify-content:center; font-size:14px;
+  }
+  .sec-item p{margin:0; font-size:13.7px; color:var(--text-mid); line-height:1.5;}
+
+  /* ---------- Roadmap ---------- */
+  .roadmap{display:flex; flex-direction:column; gap:12px;}
+  .rm-row{
+    display:grid; grid-template-columns:110px 90px 1fr; gap:18px; align-items:center;
+    padding:16px 18px; background:var(--panel); border:1px solid var(--stroke-soft); border-radius:var(--radius-sm);
+  }
+  @media (max-width:640px){.rm-row{grid-template-columns:1fr; gap:6px;}}
+  .rm-stage{font-weight:800; color:var(--text-hi); font-size:14.5px;}
+  .rm-status{
+    font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:999px; text-align:center; width:fit-content;
+    color:#B7F5DE; background:rgba(85,230,181,.12); border:1px solid rgba(85,230,181,.35);
+  }
+  .rm-scope{font-size:13.8px; color:var(--text-lo); line-height:1.55;}
+
+  /* ---------- Developer card ---------- */
+  .dev-card{
+    display:flex; align-items:center; gap:24px;
+    background:linear-gradient(135deg,var(--panel-2),var(--panel));
+    border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:32px;
+  }
+  @media (max-width:560px){.dev-card{flex-direction:column; text-align:center;}}
+  .dev-avatar{
+    flex:0 0 auto; width:92px; height:92px; border-radius:22px; overflow:hidden;
+    border:2px solid rgba(85,230,181,.4);
+    box-shadow:0 10px 30px -8px rgba(76,201,240,.35);
+  }
+  .dev-avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+  .dev-name{font-size:19px; font-weight:800; color:var(--text-hi); margin:0 0 2px;}
+  .dev-role{
+    display:inline-block; font-size:12px; font-weight:800; letter-spacing:.4px;
+    color:#062018; background:linear-gradient(120deg,var(--mint),var(--cyan));
+    padding:4px 11px; border-radius:999px; margin:6px 0 12px;
+  }
+  .dev-quote{font-size:14px; color:var(--text-lo); font-style:italic; margin:0 0 12px; max-width:48ch;}
+  .dev-link{
+    display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700;
+    color:var(--text-hi); text-decoration:none; border-bottom:1px solid var(--stroke);
+    padding-bottom:2px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:80px; padding:32px 0 12px; border-top:1px solid var(--stroke-soft);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  footer .fmark{font-size:13px; color:var(--text-dim);}
+  .star-cta{
+    display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700;
+    color:var(--text-mid); background:var(--panel-2); border:1px solid var(--stroke);
+    padding:8px 15px; border-radius:999px;
+  }
+
+  /* ---------- RTL Persian ---------- */
+  [dir="rtl"]{font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;}
+  [dir="rtl"] .lede{max-width:60ch;}
+  [dir="rtl"] .stack-table td.lbl{text-align:right;}
+  [dir="rtl"] .eyebrow{flex-direction:row-reverse;}
+  [dir="rtl"] .check-row{flex-direction:row-reverse; text-align:right;}
+  [dir="rtl"] .sec-item{flex-direction:row-reverse; text-align:right;}
+  [dir="rtl"] .step{flex-direction:row-reverse; text-align:right;}
+  [dir="rtl"] .dev-card{flex-direction:row-reverse;}
+  [dir="rtl"] .rm-row{direction:rtl;}
+  [dir="rtl"] footer{flex-direction:row-reverse;}
+
+  .lang-panel{display:none;}
+  .lang-panel.visible{display:block;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero{animation:rise .7s ease both;}
+    @keyframes rise{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+  }
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <div class="langbar-inner">
+    <div class="brandmark"><span class="dot"></span> Expense Tracker</div>
+    <div class="langtoggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+      <button id="btn-fa" onclick="setLang('fa')">فارسی</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="panel-en" class="lang-panel visible" dir="ltr">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="banner-frame">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQ4MCIgdmlld0JveD0iMCAwIDEyMDAgNDgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+RXhwZW5zZSBUcmFja2VyIOKAlCBwZXJzb25hbCBmaW5hbmNlLCBjbGVhcmx5IGluIHZpZXc8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5EYXJrIGdyYWRpZW50IGJhbm5lciB3aXRoIGEgc3R5bGl6ZWQgZmluYW5jaWFsIGRhc2hib2FyZCwgY2hhcnQsIGFuZCBjb21wbGV0ZWQgcmVsZWFzZSBsYWJlbC48L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjEyMjQiLz48c3RvcCBvZmZzZXQ9Ii41NSIgc3RvcC1jb2xvcj0iIzExMTkzNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzEwMjg0MCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYWNjZW50IiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM1NUU2QjUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0Q0M5RjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmUiIHgxPSIwIiB5MT0iMSIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzNBQkY5OCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzcxRUFEMSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZG9udXQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzU3RTRCQyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNDQTZERCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9InNoYWRvdyIgeD0iLTUwJSIgeT0iLTUwJSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIyMiIgZmxvb2QtY29sb3I9IiMwMjA4MTciIGZsb29kLW9wYWNpdHk9Ii40OCIvPgogICAgPC9maWx0ZXI+CiAgICA8ZmlsdGVyIGlkPSJnbG93IiB4PSItMTAwJSIgeT0iLTEwMCUiIHdpZHRoPSIzMDAlIiBoZWlnaHQ9IjMwMCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0OCIvPgogICAgPC9maWx0ZXI+CiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTMyIDBIMFYzMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEVBNkNGIiBzdHJva2Utb3BhY2l0eT0iLjA1NSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGNsaXBQYXRoIGlkPSJyb3VuZCI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNDgwIiByeD0iMjgiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8ZyBjbGlwLXBhdGg9InVybCgjcm91bmQpIj4KICAgIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiLz4KICAgIDxjaXJjbGUgY3g9IjEwMzAiIGN5PSI0MCIgcj0iMjEwIiBmaWxsPSIjMjk3RUJCIiBvcGFjaXR5PSIuMTciIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgPGNpcmNsZSBjeD0iMzg1IiBjeT0iNDMwIiByPSIxOTAiIGZpbGw9IiMzNENEQTAiIG9wYWNpdHk9Ii4xMiIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0ODAiIGZpbGw9InVybCgjZ3JpZCkiLz4KCiAgICA8ZyBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiI+CiAgICAgIDxyZWN0IHg9IjY2IiB5PSI1OCIgd2lkdGg9IjIwMiIgaGVpZ2h0PSIzMSIgcng9IjE1LjUiIGZpbGw9IiMxNzNFNDAiIHN0cm9rZT0iIzNCQkY5QyIgc3Ryb2tlLW9wYWNpdHk9Ii40NSIvPgogICAgICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjczLjUiIHI9IjQiIGZpbGw9IiM1QUYyQkMiLz4KICAgICAgPHRleHQgeD0iOTgiIHk9Ijc4IiBmaWxsPSIjQTdGM0QwIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMS44Ij5DT1JFIFJFTEVBU0UgwrcgMTAwJTwvdGV4dD4KCiAgICAgIDx0ZXh0IHg9IjY2IiB5PSIxNjIiIGZpbGw9IiNGNUZBRkYiIGZvbnQtc2l6ZT0iNTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSItMiI+RXhwZW5zZTwvdGV4dD4KICAgICAgPHRleHQgeD0iNjYiIHk9IjIyMyIgZmlsbD0idXJsKCNhY2NlbnQpIiBmb250LXNpemU9IjU4IiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iLTIiPlRyYWNrZXIuPC90ZXh0PgogICAgICA8cmVjdCB4PSI2NyIgeT0iMjQzIiB3aWR0aD0iNTQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiM1REU1QkMiLz4KICAgICAgPHRleHQgeD0iNjYiIHk9IjI4OCIgZmlsbD0iI0NGRDlFOSIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjQwMCI+TWFrZSBtb25leSBtYWtlIHNlbnNlLjwvdGV4dD4KICAgICAgPHRleHQgeD0iNjYiIHk9IjMyMyIgZmlsbD0iIzkxQTVCRiIgZm9udC1zaXplPSIxNSI+VHJhY2sgZXZlcnkgdHJhbnNhY3Rpb24uIFNlZSB0aGUgYmlnZ2VyIHBpY3R1cmUuPC90ZXh0PgoKICAgICAgPHJlY3QgeD0iNjYiIHk9IjM3MCIgd2lkdGg9IjE0NyIgaGVpZ2h0PSIzNyIgcng9IjE4LjUiIGZpbGw9IiMxQjM1NTEiIHN0cm9rZT0iIzREQkJDNCIgc3Ryb2tlLW9wYWNpdHk9Ii4zNSIvPgogICAgICA8dGV4dCB4PSI5MSIgeT0iMzk0IiBmaWxsPSIjRDRGQkVDIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5BU1AuTkVUIENvcmUgODwvdGV4dD4KICAgICAgPHJlY3QgeD0iMjI1IiB5PSIzNzAiIHdpZHRoPSI5MSIgaGVpZ2h0PSIzNyIgcng9IjE4LjUiIGZpbGw9IiMxQjM1NTEiIHN0cm9rZT0iIzREQkJDNCIgc3Ryb2tlLW9wYWNpdHk9Ii4zNSIvPgogICAgICA8dGV4dCB4PSIyNDgiIHk9IjM5NCIgZmlsbD0iI0Q0RkJFQyIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+UmVhY3Q8L3RleHQ+CiAgICAgIDxyZWN0IHg9IjMyOCIgeT0iMzcwIiB3aWR0aD0iMTA1IiBoZWlnaHQ9IjM3IiByeD0iMTguNSIgZmlsbD0iIzFCMzU1MSIgc3Ryb2tlPSIjNERCQkM0IiBzdHJva2Utb3BhY2l0eT0iLjM1Ii8+CiAgICAgIDx0ZXh0IHg9IjM1MSIgeT0iMzk0IiBmaWxsPSIjRDRGQkVDIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5TUUwgU2VydmVyPC90ZXh0PgoKICAgICAgPGcgZmlsdGVyPSJ1cmwoI3NoYWRvdykiPgogICAgICAgIDxyZWN0IHg9IjYwNCIgeT0iNTIiIHdpZHRoPSI1MzIiIGhlaWdodD0iMzg0IiByeD0iMjIiIGZpbGw9IiMxNzI0M0IiIHN0cm9rZT0iIzMzNDc2NSIvPgogICAgICAgIDxyZWN0IHg9IjYwNCIgeT0iNTIiIHdpZHRoPSI1MzIiIGhlaWdodD0iNDkiIHJ4PSIyMiIgZmlsbD0iIzFEMkQ0NiIvPgogICAgICAgIDxwYXRoIGQ9Ik02MDQgNzhWMTAxSDExMzZWNzgiIGZpbGw9IiMxRDJENDYiLz4KICAgICAgICA8Y2lyY2xlIGN4PSI2MzEiIGN5PSI3NyIgcj0iNSIgZmlsbD0iI0Y4NzE3MSIvPgogICAgICAgIDxjaXJjbGUgY3g9IjY0OCIgY3k9Ijc3IiByPSI1IiBmaWxsPSIjRkJCRjI0Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iNjY1IiBjeT0iNzciIHI9IjUiIGZpbGw9IiM1NEQ4QTkiLz4KICAgICAgICA8dGV4dCB4PSI2OTYiIHk9IjgyIiBmaWxsPSIjOTRBOEMxIiBmb250LXNpemU9IjEyIiBsZXR0ZXItc3BhY2luZz0iMS4yIj5PVkVSVklFVyAvIERBU0hCT0FSRDwvdGV4dD4KCiAgICAgICAgPHJlY3QgeD0iNjI3IiB5PSIxMjAiIHdpZHRoPSIxNDkiIGhlaWdodD0iNzgiIHJ4PSIxMyIgZmlsbD0iIzIxMzU1MCIvPgogICAgICAgIDx0ZXh0IHg9IjY0MiIgeT0iMTQ2IiBmaWxsPSIjOTNBOUMzIiBmb250LXNpemU9IjExIj5UT1RBTCBCQUxBTkNFPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjY0MiIgeT0iMTc2IiBmaWxsPSIjRjdGQUZGIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj4kMjQsODYwPC90ZXh0PgogICAgICAgIDxyZWN0IHg9Ijc4NyIgeT0iMTIwIiB3aWR0aD0iMTQ5IiBoZWlnaHQ9Ijc4IiByeD0iMTMiIGZpbGw9IiMyMTM1NTAiLz4KICAgICAgICA8dGV4dCB4PSI4MDIiIHk9IjE0NiIgZmlsbD0iIzkzQTlDMyIgZm9udC1zaXplPSIxMSI+SU5DT01FPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjgwMiIgeT0iMTc2IiBmaWxsPSIjNjdFNkI1IiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj4rJDgsMjQwPC90ZXh0PgogICAgICAgIDxyZWN0IHg9Ijk0NyIgeT0iMTIwIiB3aWR0aD0iMTY2IiBoZWlnaHQ9Ijc4IiByeD0iMTMiIGZpbGw9IiMyMTM1NTAiLz4KICAgICAgICA8dGV4dCB4PSI5NjIiIHk9IjE0NiIgZmlsbD0iIzkzQTlDMyIgZm9udC1zaXplPSIxMSI+RVhQRU5TRVM8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iOTYyIiB5PSIxNzYiIGZpbGw9IiNGRkMzOEIiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSI3MDAiPuKIkiQzLDE4MDwvdGV4dD4KCiAgICAgICAgPHJlY3QgeD0iNjI3IiB5PSIyMTEiIHdpZHRoPSIyOTkiIGhlaWdodD0iMTk2IiByeD0iMTMiIGZpbGw9IiMxRDJFNDciLz4KICAgICAgICA8dGV4dCB4PSI2NDYiIHk9IjI0MCIgZmlsbD0iI0UzRUNGOCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+TW9udGhseSBhY3Rpdml0eTwvdGV4dD4KICAgICAgICA8cGF0aCBkPSJNNjQ4IDI3NUg5MDZNNjQ4IDMxMkg5MDZNNjQ4IDM0OUg5MDYiIHN0cm9rZT0iIzUxNjU4MSIgc3Ryb2tlLW9wYWNpdHk9Ii4yNCIgc3Ryb2tlLWRhc2hhcnJheT0iMyA1Ii8+CiAgICAgICAgPHBhdGggZD0iTTY0OCAzNTlDNjc4IDM1MCA2ODYgMzI5IDcxNiAzMzdTNzYzIDMwNCA3OTEgMzA5IDgzOSAyNjcgODY5IDI4MSA4OTAgMjUyIDkwNiAyNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNsaW5lKSIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgICAgIDxwYXRoIGQ9Ik02NDggMzU5QzY3OCAzNTAgNjg2IDMyOSA3MTYgMzM3Uzc2MyAzMDQgNzkxIDMwOSA4MzkgMjY3IDg2OSAyODEgODkwIDI1MiA5MDYgMjYwVjM3OEg2NDhaIiBmaWxsPSIjNDZDOEEyIiBvcGFjaXR5PSIuMDgiLz4KICAgICAgICA8Y2lyY2xlIGN4PSI5MDYiIGN5PSIyNjAiIHI9IjUiIGZpbGw9IiM3NUY1QzkiIHN0cm9rZT0iIzFEMkU0NyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICAgICAgPHRleHQgeD0iNjQ4IiB5PSIzOTMiIGZpbGw9IiM4Mjk4QjQiIGZvbnQtc2l6ZT0iMTAiPkpBTjwvdGV4dD48dGV4dCB4PSI3MTIiIHk9IjM5MyIgZmlsbD0iIzgyOThCNCIgZm9udC1zaXplPSIxMCI+RkVCPC90ZXh0Pjx0ZXh0IHg9Ijc3NiIgeT0iMzkzIiBmaWxsPSIjODI5OEI0IiBmb250LXNpemU9IjEwIj5NQVI8L3RleHQ+PHRleHQgeD0iODQwIiB5PSIzOTMiIGZpbGw9IiM4Mjk4QjQiIGZvbnQtc2l6ZT0iMTAiPkFQUjwvdGV4dD48dGV4dCB4PSI4OTQiIHk9IjM5MyIgZmlsbD0iIzgyOThCNCIgZm9udC1zaXplPSIxMCI+TUFZPC90ZXh0PgoKICAgICAgICA8cmVjdCB4PSI5MzgiIHk9IjIxMSIgd2lkdGg9IjE3NSIgaGVpZ2h0PSIxOTYiIHJ4PSIxMyIgZmlsbD0iIzFEMkU0NyIvPgogICAgICAgIDx0ZXh0IHg9Ijk1NSIgeT0iMjQwIiBmaWxsPSIjRTNFQ0Y4IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5TcGVuZGluZzwvdGV4dD4KICAgICAgICA8Y2lyY2xlIGN4PSIxMDI1IiBjeT0iMzA2IiByPSI0NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzU0OTY2IiBzdHJva2Utd2lkdGg9IjE4Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iMTAyNSIgY3k9IjMwNiIgcj0iNDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNkb251dCkiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1kYXNoYXJyYXk9IjE4MCAyODMiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMDI1IDMwNikiLz4KICAgICAgICA8Y2lyY2xlIGN4PSIxMDI1IiBjeT0iMzA2IiByPSI0NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjVCODdFIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtZGFzaGFycmF5PSI2OCAyODMiIHN0cm9rZS1kYXNob2Zmc2V0PSItMTg4IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMTAyNSAzMDYpIi8+CiAgICAgICAgPHRleHQgeD0iMTAyNSIgeT0iMzExIiBmaWxsPSIjRjBGN0ZGIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xMDAlPC90ZXh0PgogICAgICAgIDxjaXJjbGUgY3g9Ijk2MiIgY3k9IjM4NCIgcj0iNCIgZmlsbD0iIzYyRTNCQyIvPjx0ZXh0IHg9Ijk3MiIgeT0iMzg4IiBmaWxsPSIjOUVCM0NBIiBmb250LXNpemU9IjEwIj5UcmFja2VkPC90ZXh0PgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K" alt="Expense Tracker — dark gradient banner with a stylized financial dashboard" />
+    </div>
+
+    <div class="pill-row">
+      <span class="pill on"><span class="sq"></span>Core release · 100% complete</span>
+      <span class="pill">.NET 8</span>
+      <span class="pill">React + Vite</span>
+      <span class="pill">SQL Server</span>
+      <span class="pill">JWT Auth</span>
+      <span class="pill">MIT License</span>
+    </div>
+
+    <h1 class="title">Make money<br/><span class="grad">make sense.</span></h1>
+    <p class="lede">A full-stack personal finance app that helps you record transactions, organize spending, and see exactly where your money goes — built with ASP.NET Core 8 and React.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/here-is-leo/expense-tracker">View on GitHub</a>
+      <a class="btn btn-ghost" href="#getting-started">Get started →</a>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="eyebrow"><span class="num">01</span>Features</div>
+    <h2>Everything you need to see the full picture</h2>
+    <p class="section-sub">A practical layered backend paired with a responsive frontend — built for clarity, not complexity.</p>
+
+    <div class="grid grid-3">
+      <div class="card feat-card"><div class="icon">🔐</div><h3>Your own space</h3><p>Registration and login with JWT authentication, and BCrypt password hashing — plaintext passwords are never stored.</p></div>
+      <div class="card feat-card"><div class="icon">💳</div><h3>Full transaction CRUD</h3><p>Create, view, edit, and delete personal income and expense records, each scoped to the owning user.</p></div>
+      <div class="card feat-card"><div class="icon">🔎</div><h3>Find it fast</h3><p>Search by term, filter by type/category/date range, and page through results with server-side sorting.</p></div>
+      <div class="card feat-card"><div class="icon">🗂️</div><h3>Ready-to-use categories</h3><p>Eight seeded global categories: Food, Transport, Shopping, Bills, Entertainment, Health, Salary, and Other.</p></div>
+      <div class="card feat-card"><div class="icon">📊</div><h3>Financial overview</h3><p>Dashboard aggregates for income, expenses, balance, category totals, monthly trends, and recent activity.</p></div>
+      <div class="card feat-card"><div class="icon">🛡️</div><h3>Safe by design</h3><p>FluentValidation request rules, centralized exception handling, and DTOs that never expose persistence entities.</p></div>
+    </div>
+  </section>
+
+  <!-- BACKEND / FRONTEND CHECKLIST -->
+  <section id="checklist">
+    <div class="eyebrow"><span class="num">02</span>Delivered</div>
+    <h2>What's shipped</h2>
+    <p class="section-sub">The core release is complete — every item below is implemented, working, and part of the current codebase.</p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin:0 0 4px; font-size:15px; color:var(--text-hi);">Backend</h3>
+        <div class="checklist">
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">User registration and login with <b>JWT authentication</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Secure password hashing with <b>BCrypt</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Full transaction CRUD — create, read, update, delete</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Filtering by type, category, date range, and search term</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Server-side pagination and sorting</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Eight seeded global categories</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Dashboard aggregates for income, expenses, balance &amp; trends</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text"><b>FluentValidation</b>-powered request validation</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Centralized exception handling, consistent error format</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Per-user ownership enforcement and IDOR prevention</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">DTOs separated from persistence entities</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Layered <b>Controllers → Services → DbContext</b> design</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px; font-size:15px; color:var(--text-hi);">Frontend</h3>
+        <div class="checklist">
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">React application powered by <b>Vite</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Fully responsive interface styled with <b>Tailwind CSS</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Client-side navigation with <b>React Router</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Authentication and transaction-management workflows</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Dashboard presentation for financial summaries</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Polished, accessible interface</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">Interactive data visualizations with <b>Recharts</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="stack">
+    <div class="eyebrow"><span class="num">03</span>Stack</div>
+    <h2>Built with</h2>
+    <div class="card">
+      <table class="stack-table">
+        <tr><td class="lbl">Backend</td><td><span class="tag">ASP.NET Core 8</span><span class="tag">Entity Framework Core 8</span><span class="tag">FluentValidation</span><span class="tag">Swagger / OpenAPI</span></td></tr>
+        <tr><td class="lbl">Frontend</td><td><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">React Router</span><span class="tag">Recharts</span></td></tr>
+        <tr><td class="lbl">Database</td><td><span class="tag">SQL Server</span></td></tr>
+        <tr><td class="lbl">Auth &amp; Security</td><td><span class="tag">JWT</span><span class="tag">BCrypt</span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section id="architecture">
+    <div class="eyebrow"><span class="num">04</span>Architecture</div>
+    <h2>Simple, layered — on purpose</h2>
+    <p class="section-sub">A modular layered monolith. Controllers handle HTTP, services hold the rules, and Entity Framework Core manages persistence. No microservices, no CQRS, no ceremony.</p>
+
+    <div class="diagram">
+      <div class="diagram-row">
+        <div class="node accent"><div class="node-title">React Client</div><div class="node-sub">HTTP / JSON + JWT</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">Controllers</div><div class="node-sub">HTTP concerns</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">Services</div><div class="node-sub">Business rules</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">EF Core</div><div class="node-sub">DbContext</div></div>
+        <div class="arrow"></div>
+        <div class="node accent"><div class="node-title">SQL Server</div><div class="node-sub">Persistence</div></div>
+      </div>
+      <div class="diagram-note">Validation runs at the controller boundary · ownership checks run inside services</div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section id="getting-started">
+    <div class="eyebrow"><span class="num">05</span>Setup</div>
+    <h2>Run it locally</h2>
+    <p class="section-sub">Works on Windows, macOS, or Linux. You'll need the .NET 8 SDK, Node.js with npm, SQL Server (or a compatible instance), and Git.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Clone the repository</h4>
+          <p>Pull the project down and move into the project directory.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Configure and run the backend</h4>
+          <p>Restore packages, apply migrations, and start the API from <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">backend/ExpenseTracker.Api</code>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Configure and run the frontend</h4>
+          <p>Install dependencies and start the Vite dev server from <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">frontend</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">terminal — backend</span></div>
+      <pre><code><span class="c-cmt"># 1. clone</span>
+<span class="c-key">git</span> clone https://github.com/here-is-leo/expense-tracker.git
+<span class="c-key">cd</span> expense-tracker
+
+<span class="c-cmt"># 2. backend</span>
+<span class="c-key">cd</span> backend/ExpenseTracker.Api
+<span class="c-key">dotnet</span> restore
+<span class="c-key">dotnet</span> ef database update
+<span class="c-key">dotnet</span> run</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">appsettings.Development.json</span></div>
+      <pre><code>{
+  <span class="c-mint">"ConnectionStrings"</span>: {
+    <span class="c-mint">"DefaultConnection"</span>: <span class="c-str">"Server=localhost;Database=ExpenseTrackerDb;Trusted_Connection=True;TrustServerCertificate=True"</span>
+  },
+  <span class="c-mint">"Jwt"</span>: {
+    <span class="c-mint">"Key"</span>: <span class="c-str">"replace-with-a-long-development-secret"</span>,
+    <span class="c-mint">"Issuer"</span>: <span class="c-str">"ExpenseTracker.Api"</span>,
+    <span class="c-mint">"Audience"</span>: <span class="c-str">"ExpenseTracker.Client"</span>
+  }
+}</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">terminal — frontend</span></div>
+      <pre><code><span class="c-key">cd</span> ../../frontend
+<span class="c-key">npm</span> install
+<span class="c-key">npm</span> run dev
+
+<span class="c-cmt"># .env (if required)</span>
+VITE_API_BASE_URL=https://localhost:5001/api</code></pre>
+    </div>
+    <p class="section-sub" style="margin-top:-8px;">Never commit production secrets — use environment variables, .NET user secrets, or a dedicated secrets manager.</p>
+  </section>
+
+  <!-- API -->
+  <section id="api">
+    <div class="eyebrow"><span class="num">06</span>Reference</div>
+    <h2>API at a glance</h2>
+    <p class="section-sub">Full endpoint documentation lives in <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">docs/API.md</code>. Swagger UI is available at <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">/swagger</code> in development.</p>
+
+    <div class="card" style="padding:8px 18px;">
+      <table class="api-table">
+        <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/auth/register</code></td><td class="purpose">Register a user</td></tr>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/auth/login</code></td><td class="purpose">Authenticate and receive a JWT</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/transactions</code></td><td class="purpose">List, filter, sort, and paginate transactions</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">Retrieve one owned transaction</td></tr>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/transactions</code></td><td class="purpose">Create a transaction</td></tr>
+          <tr><td><span class="method m-put">PUT</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">Update an owned transaction</td></tr>
+          <tr><td><span class="method m-del">DELETE</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">Delete an owned transaction</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/categories</code></td><td class="purpose">List global categories</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/dashboard</code></td><td class="purpose">Retrieve financial aggregates and recent activity</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section id="security">
+    <div class="eyebrow"><span class="num">07</span>Security</div>
+    <h2>Safe by default</h2>
+    <div class="sec-grid">
+      <div class="sec-item"><div class="sec-ico">🔑</div><p>JWT-based authentication for every protected API operation</p></div>
+      <div class="sec-item"><div class="sec-ico">🔒</div><p>BCrypt password hashing — plaintext passwords are never stored</p></div>
+      <div class="sec-item"><div class="sec-ico">🛡️</div><p>Ownership checks on user-scoped resources to prevent IDOR vulnerabilities</p></div>
+      <div class="sec-item"><div class="sec-ico">🕵️</div><p><code style="background:var(--panel-3); padding:1px 5px; border-radius:4px; font-size:12px;">404</code> responses for inaccessible resources, so existence is never revealed</p></div>
+      <div class="sec-item"><div class="sec-ico">✅</div><p>Server-side validation with FluentValidation on every request</p></div>
+      <div class="sec-item"><div class="sec-ico">⚠️</div><p>Centralized exception handling with consistent error responses</p></div>
+      <div class="sec-item"><div class="sec-ico">📦</div><p>DTOs prevent persistence entities from being exposed directly</p></div>
+      <div class="sec-item"><div class="sec-ico">💰</div><p>Fixed-precision <code style="background:var(--panel-3); padding:1px 5px; border-radius:4px; font-size:12px;">decimal / numeric(18,2)</code> values for monetary data</p></div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <div class="eyebrow"><span class="num">08</span>Roadmap</div>
+    <h2>Where it's headed</h2>
+    <p class="section-sub">The core release is feature-complete. Everything below in the current stage is shipped; future stages are exploratory.</p>
+
+    <div class="roadmap">
+      <div class="rm-row">
+        <div class="rm-stage">Core release</div>
+        <div class="rm-status">Complete</div>
+        <div class="rm-scope">JWT authentication, BCrypt hashing, transaction CRUD, filters, pagination, sorting, categories, dashboard aggregates, validation, error handling, ownership enforcement, Recharts visualizations, and layered organization.</div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-stage">Next up</div>
+        <div class="rm-status" style="color:#FFD897; background:rgba(255,195,139,.12); border-color:rgba(255,195,139,.32);">Exploring</div>
+        <div class="rm-scope">Budgets, recurring transactions, data exports, richer analytics, notifications, and broader customization.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPER -->
+  <section id="developer">
+    <div class="eyebrow"><span class="num">09</span>Team</div>
+    <h2>Meet the developer</h2>
+    <div class="dev-card">
+      <div class="dev-avatar"><img src="https://github.com/here-is-leo.png?size=200" alt="Ilia Farahani" /></div>
+      <div>
+        <div class="dev-name">Ilia Farahani · ایلیا فراهانی</div>
+        <span class="dev-role">Senior Developer — Project Lead</span>
+        <p class="dev-quote">"Reliable software begins with clear boundaries and thoughtful decisions."</p>
+        <a class="dev-link" href="https://github.com/here-is-leo">@here-is-leo on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="fmark">Expense Tracker · MIT License · built with ASP.NET Core 8 &amp; React</span>
+    <span class="star-cta">⭐ Star the repo if it helps you</span>
+  </footer>
+
+</div>
+</div>
+
+<!-- ============================= PERSIAN ============================= -->
+<div id="panel-fa" class="lang-panel" dir="rtl">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="banner-frame">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQ4MCIgdmlld0JveD0iMCAwIDEyMDAgNDgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+RXhwZW5zZSBUcmFja2VyIOKAlCBwZXJzb25hbCBmaW5hbmNlLCBjbGVhcmx5IGluIHZpZXc8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5EYXJrIGdyYWRpZW50IGJhbm5lciB3aXRoIGEgc3R5bGl6ZWQgZmluYW5jaWFsIGRhc2hib2FyZCwgY2hhcnQsIGFuZCBjb21wbGV0ZWQgcmVsZWFzZSBsYWJlbC48L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjEyMjQiLz48c3RvcCBvZmZzZXQ9Ii41NSIgc3RvcC1jb2xvcj0iIzExMTkzNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzEwMjg0MCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYWNjZW50IiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM1NUU2QjUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0Q0M5RjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmUiIHgxPSIwIiB5MT0iMSIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzNBQkY5OCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzcxRUFEMSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZG9udXQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzU3RTRCQyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNDQTZERCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9InNoYWRvdyIgeD0iLTUwJSIgeT0iLTUwJSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIyMiIgZmxvb2QtY29sb3I9IiMwMjA4MTciIGZsb29kLW9wYWNpdHk9Ii40OCIvPgogICAgPC9maWx0ZXI+CiAgICA8ZmlsdGVyIGlkPSJnbG93IiB4PSItMTAwJSIgeT0iLTEwMCUiIHdpZHRoPSIzMDAlIiBoZWlnaHQ9IjMwMCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0OCIvPgogICAgPC9maWx0ZXI+CiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTMyIDBIMFYzMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEVBNkNGIiBzdHJva2Utb3BhY2l0eT0iLjA1NSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGNsaXBQYXRoIGlkPSJyb3VuZCI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNDgwIiByeD0iMjgiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8ZyBjbGlwLXBhdGg9InVybCgjcm91bmQpIj4KICAgIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiLz4KICAgIDxjaXJjbGUgY3g9IjEwMzAiIGN5PSI0MCIgcj0iMjEwIiBmaWxsPSIjMjk3RUJCIiBvcGFjaXR5PSIuMTciIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgPGNpcmNsZSBjeD0iMzg1IiBjeT0iNDMwIiByPSIxOTAiIGZpbGw9IiMzNENEQTAiIG9wYWNpdHk9Ii4xMiIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0ODAiIGZpbGw9InVybCgjZ3JpZCkiLz4KCiAgICA8ZyBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiI+CiAgICAgIDxyZWN0IHg9IjY2IiB5PSI1OCIgd2lkdGg9IjIwMiIgaGVpZ2h0PSIzMSIgcng9IjE1LjUiIGZpbGw9IiMxNzNFNDAiIHN0cm9rZT0iIzNCQkY5QyIgc3Ryb2tlLW9wYWNpdHk9Ii40NSIvPgogICAgICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjczLjUiIHI9IjQiIGZpbGw9IiM1QUYyQkMiLz4KICAgICAgPHRleHQgeD0iOTgiIHk9Ijc4IiBmaWxsPSIjQTdGM0QwIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMS44Ij5DT1JFIFJFTEVBU0UgwrcgMTAwJTwvdGV4dD4KCiAgICAgIDx0ZXh0IHg9IjY2IiB5PSIxNjIiIGZpbGw9IiNGNUZBRkYiIGZvbnQtc2l6ZT0iNTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSItMiI+RXhwZW5zZTwvdGV4dD4KICAgICAgPHRleHQgeD0iNjYiIHk9IjIyMyIgZmlsbD0idXJsKCNhY2NlbnQpIiBmb250LXNpemU9IjU4IiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iLTIiPlRyYWNrZXIuPC90ZXh0PgogICAgICA8cmVjdCB4PSI2NyIgeT0iMjQzIiB3aWR0aD0iNTQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiM1REU1QkMiLz4KICAgICAgPHRleHQgeD0iNjYiIHk9IjI4OCIgZmlsbD0iI0NGRDlFOSIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjQwMCI+TWFrZSBtb25leSBtYWtlIHNlbnNlLjwvdGV4dD4KICAgICAgPHRleHQgeD0iNjYiIHk9IjMyMyIgZmlsbD0iIzkxQTVCRiIgZm9udC1zaXplPSIxNSI+VHJhY2sgZXZlcnkgdHJhbnNhY3Rpb24uIFNlZSB0aGUgYmlnZ2VyIHBpY3R1cmUuPC90ZXh0PgoKICAgICAgPHJlY3QgeD0iNjYiIHk9IjM3MCIgd2lkdGg9IjE0NyIgaGVpZ2h0PSIzNyIgcng9IjE4LjUiIGZpbGw9IiMxQjM1NTEiIHN0cm9rZT0iIzREQkJDNCIgc3Ryb2tlLW9wYWNpdHk9Ii4zNSIvPgogICAgICA8dGV4dCB4PSI5MSIgeT0iMzk0IiBmaWxsPSIjRDRGQkVDIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5BU1AuTkVUIENvcmUgODwvdGV4dD4KICAgICAgPHJlY3QgeD0iMjI1IiB5PSIzNzAiIHdpZHRoPSI5MSIgaGVpZ2h0PSIzNyIgcng9IjE4LjUiIGZpbGw9IiMxQjM1NTEiIHN0cm9rZT0iIzREQkJDNCIgc3Ryb2tlLW9wYWNpdHk9Ii4zNSIvPgogICAgICA8dGV4dCB4PSIyNDgiIHk9IjM5NCIgZmlsbD0iI0Q0RkJFQyIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+UmVhY3Q8L3RleHQ+CiAgICAgIDxyZWN0IHg9IjMyOCIgeT0iMzcwIiB3aWR0aD0iMTA1IiBoZWlnaHQ9IjM3IiByeD0iMTguNSIgZmlsbD0iIzFCMzU1MSIgc3Ryb2tlPSIjNERCQkM0IiBzdHJva2Utb3BhY2l0eT0iLjM1Ii8+CiAgICAgIDx0ZXh0IHg9IjM1MSIgeT0iMzk0IiBmaWxsPSIjRDRGQkVDIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5TUUwgU2VydmVyPC90ZXh0PgoKICAgICAgPGcgZmlsdGVyPSJ1cmwoI3NoYWRvdykiPgogICAgICAgIDxyZWN0IHg9IjYwNCIgeT0iNTIiIHdpZHRoPSI1MzIiIGhlaWdodD0iMzg0IiByeD0iMjIiIGZpbGw9IiMxNzI0M0IiIHN0cm9rZT0iIzMzNDc2NSIvPgogICAgICAgIDxyZWN0IHg9IjYwNCIgeT0iNTIiIHdpZHRoPSI1MzIiIGhlaWdodD0iNDkiIHJ4PSIyMiIgZmlsbD0iIzFEMkQ0NiIvPgogICAgICAgIDxwYXRoIGQ9Ik02MDQgNzhWMTAxSDExMzZWNzgiIGZpbGw9IiMxRDJENDYiLz4KICAgICAgICA8Y2lyY2xlIGN4PSI2MzEiIGN5PSI3NyIgcj0iNSIgZmlsbD0iI0Y4NzE3MSIvPgogICAgICAgIDxjaXJjbGUgY3g9IjY0OCIgY3k9Ijc3IiByPSI1IiBmaWxsPSIjRkJCRjI0Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iNjY1IiBjeT0iNzciIHI9IjUiIGZpbGw9IiM1NEQ4QTkiLz4KICAgICAgICA8dGV4dCB4PSI2OTYiIHk9IjgyIiBmaWxsPSIjOTRBOEMxIiBmb250LXNpemU9IjEyIiBsZXR0ZXItc3BhY2luZz0iMS4yIj5PVkVSVklFVyAvIERBU0hCT0FSRDwvdGV4dD4KCiAgICAgICAgPHJlY3QgeD0iNjI3IiB5PSIxMjAiIHdpZHRoPSIxNDkiIGhlaWdodD0iNzgiIHJ4PSIxMyIgZmlsbD0iIzIxMzU1MCIvPgogICAgICAgIDx0ZXh0IHg9IjY0MiIgeT0iMTQ2IiBmaWxsPSIjOTNBOUMzIiBmb250LXNpemU9IjExIj5UT1RBTCBCQUxBTkNFPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjY0MiIgeT0iMTc2IiBmaWxsPSIjRjdGQUZGIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj4kMjQsODYwPC90ZXh0PgogICAgICAgIDxyZWN0IHg9Ijc4NyIgeT0iMTIwIiB3aWR0aD0iMTQ5IiBoZWlnaHQ9Ijc4IiByeD0iMTMiIGZpbGw9IiMyMTM1NTAiLz4KICAgICAgICA8dGV4dCB4PSI4MDIiIHk9IjE0NiIgZmlsbD0iIzkzQTlDMyIgZm9udC1zaXplPSIxMSI+SU5DT01FPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjgwMiIgeT0iMTc2IiBmaWxsPSIjNjdFNkI1IiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj4rJDgsMjQwPC90ZXh0PgogICAgICAgIDxyZWN0IHg9Ijk0NyIgeT0iMTIwIiB3aWR0aD0iMTY2IiBoZWlnaHQ9Ijc4IiByeD0iMTMiIGZpbGw9IiMyMTM1NTAiLz4KICAgICAgICA8dGV4dCB4PSI5NjIiIHk9IjE0NiIgZmlsbD0iIzkzQTlDMyIgZm9udC1zaXplPSIxMSI+RVhQRU5TRVM8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iOTYyIiB5PSIxNzYiIGZpbGw9IiNGRkMzOEIiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSI3MDAiPuKIkiQzLDE4MDwvdGV4dD4KCiAgICAgICAgPHJlY3QgeD0iNjI3IiB5PSIyMTEiIHdpZHRoPSIyOTkiIGhlaWdodD0iMTk2IiByeD0iMTMiIGZpbGw9IiMxRDJFNDciLz4KICAgICAgICA8dGV4dCB4PSI2NDYiIHk9IjI0MCIgZmlsbD0iI0UzRUNGOCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+TW9udGhseSBhY3Rpdml0eTwvdGV4dD4KICAgICAgICA8cGF0aCBkPSJNNjQ4IDI3NUg5MDZNNjQ4IDMxMkg5MDZNNjQ4IDM0OUg5MDYiIHN0cm9rZT0iIzUxNjU4MSIgc3Ryb2tlLW9wYWNpdHk9Ii4yNCIgc3Ryb2tlLWRhc2hhcnJheT0iMyA1Ii8+CiAgICAgICAgPHBhdGggZD0iTTY0OCAzNTlDNjc4IDM1MCA2ODYgMzI5IDcxNiAzMzdTNzYzIDMwNCA3OTEgMzA5IDgzOSAyNjcgODY5IDI4MSA4OTAgMjUyIDkwNiAyNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNsaW5lKSIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgICAgIDxwYXRoIGQ9Ik02NDggMzU5QzY3OCAzNTAgNjg2IDMyOSA3MTYgMzM3Uzc2MyAzMDQgNzkxIDMwOSA4MzkgMjY3IDg2OSAyODEgODkwIDI1MiA5MDYgMjYwVjM3OEg2NDhaIiBmaWxsPSIjNDZDOEEyIiBvcGFjaXR5PSIuMDgiLz4KICAgICAgICA8Y2lyY2xlIGN4PSI5MDYiIGN5PSIyNjAiIHI9IjUiIGZpbGw9IiM3NUY1QzkiIHN0cm9rZT0iIzFEMkU0NyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICAgICAgPHRleHQgeD0iNjQ4IiB5PSIzOTMiIGZpbGw9IiM4Mjk4QjQiIGZvbnQtc2l6ZT0iMTAiPkpBTjwvdGV4dD48dGV4dCB4PSI3MTIiIHk9IjM5MyIgZmlsbD0iIzgyOThCNCIgZm9udC1zaXplPSIxMCI+RkVCPC90ZXh0Pjx0ZXh0IHg9Ijc3NiIgeT0iMzkzIiBmaWxsPSIjODI5OEI0IiBmb250LXNpemU9IjEwIj5NQVI8L3RleHQ+PHRleHQgeD0iODQwIiB5PSIzOTMiIGZpbGw9IiM4Mjk4QjQiIGZvbnQtc2l6ZT0iMTAiPkFQUjwvdGV4dD48dGV4dCB4PSI4OTQiIHk9IjM5MyIgZmlsbD0iIzgyOThCNCIgZm9udC1zaXplPSIxMCI+TUFZPC90ZXh0PgoKICAgICAgICA8cmVjdCB4PSI5MzgiIHk9IjIxMSIgd2lkdGg9IjE3NSIgaGVpZ2h0PSIxOTYiIHJ4PSIxMyIgZmlsbD0iIzFEMkU0NyIvPgogICAgICAgIDx0ZXh0IHg9Ijk1NSIgeT0iMjQwIiBmaWxsPSIjRTNFQ0Y4IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIj5TcGVuZGluZzwvdGV4dD4KICAgICAgICA8Y2lyY2xlIGN4PSIxMDI1IiBjeT0iMzA2IiByPSI0NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzU0OTY2IiBzdHJva2Utd2lkdGg9IjE4Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iMTAyNSIgY3k9IjMwNiIgcj0iNDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNkb251dCkiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1kYXNoYXJyYXk9IjE4MCAyODMiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMDI1IDMwNikiLz4KICAgICAgICA8Y2lyY2xlIGN4PSIxMDI1IiBjeT0iMzA2IiByPSI0NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjVCODdFIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtZGFzaGFycmF5PSI2OCAyODMiIHN0cm9rZS1kYXNob2Zmc2V0PSItMTg4IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMTAyNSAzMDYpIi8+CiAgICAgICAgPHRleHQgeD0iMTAyNSIgeT0iMzExIiBmaWxsPSIjRjBGN0ZGIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xMDAlPC90ZXh0PgogICAgICAgIDxjaXJjbGUgY3g9Ijk2MiIgY3k9IjM4NCIgcj0iNCIgZmlsbD0iIzYyRTNCQyIvPjx0ZXh0IHg9Ijk3MiIgeT0iMzg4IiBmaWxsPSIjOUVCM0NBIiBmb250LXNpemU9IjEwIj5UcmFja2VkPC90ZXh0PgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K" alt="ردیاب هزینه — بنر گرادیانت تیره با داشبورد مالی" />
+    </div>
+
+    <div class="pill-row">
+      <span class="pill on"><span class="sq"></span>نسخه اصلی · ۱۰۰٪ تکمیل‌شده</span>
+      <span class="pill">.NET 8</span>
+      <span class="pill">React + Vite</span>
+      <span class="pill">SQL Server</span>
+      <span class="pill">JWT</span>
+      <span class="pill">مجوز MIT</span>
+    </div>
+
+    <h1 class="title">پول را <span class="grad">قابل‌فهم کن.</span></h1>
+    <p class="lede">یک اپلیکیشن کامل مدیریت مالی شخصی که به شما کمک می‌کند تراکنش‌ها را ثبت کنید، هزینه‌ها را سازمان‌دهی کنید و دقیقاً ببینید پولتان کجا می‌رود — ساخته‌شده با ASP.NET Core 8 و React.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/here-is-leo/expense-tracker">مشاهده در گیت‌هاب</a>
+      <a class="btn btn-ghost" href="#fa-start">← شروع کنید</a>
+    </div>
+  </div>
+
+  <section id="fa-features">
+    <div class="eyebrow"><span class="num">۰۱</span>قابلیت‌ها</div>
+    <h2>همه‌چیز برای دیدن تصویر کامل</h2>
+    <p class="section-sub">یک بک‌اند لایه‌بندی‌شدهٔ کاربردی همراه با رابطی واکنش‌گرا — ساخته‌شده برای شفافیت، نه پیچیدگی.</p>
+
+    <div class="grid grid-3">
+      <div class="card feat-card"><div class="icon">🔐</div><h3>حساب شخصی امن</h3><p>ثبت‌نام و ورود با احراز هویت JWT و هش گذرواژه با BCrypt — گذرواژهٔ خام هرگز ذخیره نمی‌شود.</p></div>
+      <div class="card feat-card"><div class="icon">💳</div><h3>مدیریت کامل تراکنش‌ها</h3><p>ایجاد، مشاهده، ویرایش و حذف تراکنش‌های درآمد و هزینه، هرکدام متعلق به کاربر مالک.</p></div>
+      <div class="card feat-card"><div class="icon">🔎</div><h3>جست‌وجوی سریع</h3><p>جست‌وجو با عبارت، فیلتر بر اساس نوع/دسته/بازه زمانی، و صفحه‌بندی با مرتب‌سازی سمت سرور.</p></div>
+      <div class="card feat-card"><div class="icon">🗂️</div><h3>دسته‌های آماده</h3><p>هشت دسته‌بندی عمومی اولیه: خوراک، حمل‌ونقل، خرید، قبوض، سرگرمی، سلامت، حقوق و سایر.</p></div>
+      <div class="card feat-card"><div class="icon">📊</div><h3>نمای کلی مالی</h3><p>محاسبات داشبورد برای درآمد، هزینه، موجودی، جمع دسته‌بندی‌ها، روند ماهانه و فعالیت‌های اخیر.</p></div>
+      <div class="card feat-card"><div class="icon">🛡️</div><h3>ایمن از پایه</h3><p>اعتبارسنجی با FluentValidation، مدیریت متمرکز خطاها، و DTOهایی که هرگز موجودیت‌های داده را افشا نمی‌کنند.</p></div>
+    </div>
+  </section>
+
+  <section id="fa-checklist">
+    <div class="eyebrow"><span class="num">۰۲</span>تحویل‌شده</div>
+    <h2>چه چیزی آماده است</h2>
+    <p class="section-sub">نسخهٔ اصلی کامل است — هر مورد زیر پیاده‌سازی شده، کار می‌کند و بخشی از کدبیس فعلی است.</p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin:0 0 4px; font-size:15px; color:var(--text-hi);">بک‌اند</h3>
+        <div class="checklist">
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">ثبت‌نام و ورود کاربران با <b>احراز هویت JWT</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">هش امن گذرواژه‌ها با <b>BCrypt</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">مدیریت کامل تراکنش‌ها — ایجاد، خواندن، ویرایش، حذف</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">فیلتر بر اساس نوع، دسته، بازهٔ زمانی و عبارت جست‌وجو</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">صفحه‌بندی و مرتب‌سازی سمت سرور</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">هشت دسته‌بندی عمومی اولیه</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">محاسبات داشبورد برای درآمد، هزینه، موجودی و روندها</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">اعتبارسنجی درخواست‌ها با <b>FluentValidation</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">مدیریت متمرکز خطاها با قالب پاسخ یکپارچه</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">کنترل مالکیت هر کاربر و جلوگیری از IDOR</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">جداسازی DTOها از موجودیت‌های پایگاه داده</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">طراحی لایه‌ای <b>Controllers → Services → DbContext</b></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px; font-size:15px; color:var(--text-hi);">فرانت‌اند</h3>
+        <div class="checklist">
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">اپلیکیشن React مبتنی بر <b>Vite</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">رابط کاملاً واکنش‌گرا با <b>Tailwind CSS</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">مسیریابی سمت کاربر با <b>React Router</b></div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">فرایندهای احراز هویت و مدیریت تراکنش</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">نمایش خلاصهٔ اطلاعات مالی در داشبورد</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">رابط کاربری صیقل‌خورده و دسترس‌پذیر</div></div>
+          <div class="check-row"><div class="check-mark">✓</div><div class="check-text">نمودارهای تعاملی داده با <b>Recharts</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fa-stack">
+    <div class="eyebrow"><span class="num">۰۳</span>فناوری‌ها</div>
+    <h2>ساخته‌شده با</h2>
+    <div class="card">
+      <table class="stack-table">
+        <tr><td class="lbl">بک‌اند</td><td><span class="tag">ASP.NET Core 8</span><span class="tag">Entity Framework Core 8</span><span class="tag">FluentValidation</span><span class="tag">Swagger / OpenAPI</span></td></tr>
+        <tr><td class="lbl">فرانت‌اند</td><td><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">React Router</span><span class="tag">Recharts</span></td></tr>
+        <tr><td class="lbl">پایگاه داده</td><td><span class="tag">SQL Server</span></td></tr>
+        <tr><td class="lbl">احراز هویت و امنیت</td><td><span class="tag">JWT</span><span class="tag">BCrypt</span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="fa-architecture">
+    <div class="eyebrow"><span class="num">۰۴</span>معماری</div>
+    <h2>ساده و لایه‌بندی‌شده — عمداً</h2>
+    <p class="section-sub">یک مونولیت ماژولار و لایه‌بندی‌شده. کنترلرها مسئول HTTP، سرویس‌ها محل قوانین، و Entity Framework Core مسئول ذخیره‌سازی است. بدون میکروسرویس، بدون CQRS، بدون تشریفات اضافه.</p>
+
+    <div class="diagram">
+      <div class="diagram-row">
+        <div class="node accent"><div class="node-title">React Client</div><div class="node-sub">HTTP / JSON + JWT</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">Controllers</div><div class="node-sub">مفاهیم HTTP</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">Services</div><div class="node-sub">قوانین کسب‌وکار</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="node-title">EF Core</div><div class="node-sub">DbContext</div></div>
+        <div class="arrow"></div>
+        <div class="node accent"><div class="node-title">SQL Server</div><div class="node-sub">ذخیره‌سازی</div></div>
+      </div>
+      <div class="diagram-note">اعتبارسنجی در مرز کنترلر اجرا می‌شود · کنترل مالکیت داخل سرویس‌ها انجام می‌شود</div>
+    </div>
+  </section>
+
+  <section id="fa-start">
+    <div class="eyebrow"><span class="num">۰۵</span>راه‌اندازی</div>
+    <h2>اجرای محلی پروژه</h2>
+    <p class="section-sub">روی ویندوز، macOS و لینوکس قابل اجراست. به .NET 8 SDK، Node.js همراه npm، SQL Server (یا نمونه‌ای سازگار) و Git نیاز دارید.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>دریافت مخزن</h4><p>پروژه را کلون کنید و وارد پوشهٔ آن شوید.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>پیکربندی و اجرای بک‌اند</h4><p>وابستگی‌ها را نصب کنید، مایگریشن‌ها را اعمال کنید و API را از <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">backend/ExpenseTracker.Api</code> اجرا کنید.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>پیکربندی و اجرای فرانت‌اند</h4><p>وابستگی‌ها را نصب کرده و سرور توسعهٔ Vite را از پوشهٔ <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">frontend</code> اجرا کنید.</p></div>
+      </div>
+    </div>
+
+    <div class="code-block" dir="ltr">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">ترمینال — بک‌اند</span></div>
+      <pre><code><span class="c-cmt"># ۱. کلون پروژه</span>
+<span class="c-key">git</span> clone https://github.com/here-is-leo/expense-tracker.git
+<span class="c-key">cd</span> expense-tracker
+
+<span class="c-cmt"># ۲. بک‌اند</span>
+<span class="c-key">cd</span> backend/ExpenseTracker.Api
+<span class="c-key">dotnet</span> restore
+<span class="c-key">dotnet</span> ef database update
+<span class="c-key">dotnet</span> run</code></pre>
+    </div>
+
+    <div class="code-block" dir="ltr">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">appsettings.Development.json</span></div>
+      <pre><code>{
+  <span class="c-mint">"ConnectionStrings"</span>: {
+    <span class="c-mint">"DefaultConnection"</span>: <span class="c-str">"Server=localhost;Database=ExpenseTrackerDb;Trusted_Connection=True;TrustServerCertificate=True"</span>
+  },
+  <span class="c-mint">"Jwt"</span>: {
+    <span class="c-mint">"Key"</span>: <span class="c-str">"replace-with-a-long-development-secret"</span>,
+    <span class="c-mint">"Issuer"</span>: <span class="c-str">"ExpenseTracker.Api"</span>,
+    <span class="c-mint">"Audience"</span>: <span class="c-str">"ExpenseTracker.Client"</span>
+  }
+}</code></pre>
+    </div>
+
+    <div class="code-block" dir="ltr">
+      <div class="code-head"><div class="dots"><span></span><span></span><span></span></div><span class="fname">ترمینال — فرانت‌اند</span></div>
+      <pre><code><span class="c-key">cd</span> ../../frontend
+<span class="c-key">npm</span> install
+<span class="c-key">npm</span> run dev
+
+<span class="c-cmt"># .env (در صورت نیاز)</span>
+VITE_API_BASE_URL=https://localhost:5001/api</code></pre>
+    </div>
+    <p class="section-sub" style="margin-top:-8px;">اسرار محیط عملیاتی را هرگز در مخزن ثبت نکنید — از متغیرهای محیطی، User Secrets یا سامانهٔ مدیریت اسرار استفاده کنید.</p>
+  </section>
+
+  <section id="fa-api">
+    <div class="eyebrow"><span class="num">۰۶</span>مرجع</div>
+    <h2>نمای کلی API</h2>
+    <p class="section-sub">مستندات کامل endpointها در <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">docs/API.md</code> است. رابط Swagger در محیط توسعه از مسیر <code style="background:var(--panel-3); padding:2px 6px; border-radius:5px; font-size:12.5px;">/swagger</code> در دسترس است.</p>
+
+    <div class="card" style="padding:8px 18px;" dir="ltr">
+      <table class="api-table">
+        <thead><tr><th>متد</th><th>مسیر</th><th>کاربرد</th></tr></thead>
+        <tbody>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/auth/register</code></td><td class="purpose">ثبت‌نام کاربر</td></tr>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/auth/login</code></td><td class="purpose">ورود و دریافت JWT</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/transactions</code></td><td class="purpose">دریافت، فیلتر، مرتب‌سازی و صفحه‌بندی</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">دریافت یک تراکنش متعلق به کاربر</td></tr>
+          <tr><td><span class="method m-post">POST</span></td><td><code>/api/transactions</code></td><td class="purpose">ایجاد تراکنش</td></tr>
+          <tr><td><span class="method m-put">PUT</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">ویرایش تراکنش متعلق به کاربر</td></tr>
+          <tr><td><span class="method m-del">DELETE</span></td><td><code>/api/transactions/{id}</code></td><td class="purpose">حذف تراکنش متعلق به کاربر</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/categories</code></td><td class="purpose">دریافت دسته‌بندی‌های عمومی</td></tr>
+          <tr><td><span class="method m-get">GET</span></td><td><code>/api/dashboard</code></td><td class="purpose">دریافت محاسبات مالی و فعالیت‌های اخیر</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="fa-security">
+    <div class="eyebrow"><span class="num">۰۷</span>امنیت</div>
+    <h2>ایمن به‌صورت پیش‌فرض</h2>
+    <div class="sec-grid">
+      <div class="sec-item"><div class="sec-ico">🔑</div><p>احراز هویت مبتنی بر JWT برای هر عملیات محافظت‌شدهٔ API</p></div>
+      <div class="sec-item"><div class="sec-ico">🔒</div><p>هش گذرواژه با BCrypt — گذرواژهٔ خام هرگز ذخیره نمی‌شود</p></div>
+      <div class="sec-item"><div class="sec-ico">🛡️</div><p>کنترل مالکیت منابع کاربر برای جلوگیری از آسیب‌پذیری IDOR</p></div>
+      <div class="sec-item"><div class="sec-ico">🕵️</div><p>پاسخ <code style="background:var(--panel-3); padding:1px 5px; border-radius:4px; font-size:12px;">404</code> برای منابع غیرقابل‌دسترسی، بدون افشای وجود آن‌ها</p></div>
+      <div class="sec-item"><div class="sec-ico">✅</div><p>اعتبارسنجی سمت سرور با FluentValidation روی هر درخواست</p></div>
+      <div class="sec-item"><div class="sec-ico">⚠️</div><p>مدیریت متمرکز استثناها با پاسخ خطای یکپارچه</p></div>
+      <div class="sec-item"><div class="sec-ico">📦</div><p>DTOها از افشای مستقیم موجودیت‌های پایگاه داده جلوگیری می‌کنند</p></div>
+      <div class="sec-item"><div class="sec-ico">💰</div><p>مقادیر مالی با دقت ثابت <code style="background:var(--panel-3); padding:1px 5px; border-radius:4px; font-size:12px;">decimal / numeric(18,2)</code></p></div>
+    </div>
+  </section>
+
+  <section id="fa-roadmap">
+    <div class="eyebrow"><span class="num">۰۸</span>نقشه راه</div>
+    <h2>مسیر پیش رو</h2>
+    <p class="section-sub">نسخهٔ اصلی کاملاً تکمیل شده است. همهٔ موارد مرحلهٔ فعلی تحویل داده شده‌اند؛ مراحل بعدی در حال بررسی هستند.</p>
+
+    <div class="roadmap">
+      <div class="rm-row">
+        <div class="rm-stage">نسخهٔ اصلی</div>
+        <div class="rm-status">تکمیل‌شده</div>
+        <div class="rm-scope">احراز هویت JWT، هش BCrypt، مدیریت تراکنش، فیلترها، صفحه‌بندی، مرتب‌سازی، دسته‌بندی‌ها، محاسبات داشبورد، اعتبارسنجی، مدیریت خطا، کنترل مالکیت، نمودارهای Recharts و ساختار لایه‌ای.</div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-stage">مرحلهٔ بعدی</div>
+        <div class="rm-status" style="color:#FFD897; background:rgba(255,195,139,.12); border-color:rgba(255,195,139,.32);">در حال بررسی</div>
+        <div class="rm-scope">بودجه‌بندی، تراکنش‌های دوره‌ای، خروجی داده، تحلیل‌های پیشرفته‌تر، اعلان‌ها و شخصی‌سازی گسترده‌تر.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fa-developer">
+    <div class="eyebrow"><span class="num">۰۹</span>تیم</div>
+    <h2>آشنایی با برنامه‌نویس</h2>
+    <div class="dev-card">
+      <div class="dev-avatar"><img src="https://github.com/here-is-leo.png?size=200" alt="ایلیا فراهانی" /></div>
+      <div>
+        <div class="dev-name">ایلیا فراهانی · Ilia Farahani</div>
+        <span class="dev-role">برنامه‌نویس ارشد پروژه</span>
+        <p class="dev-quote">«نرم‌افزار قابل‌اعتماد از مرزبندی روشن و تصمیم‌های سنجیده آغاز می‌شود.»</p>
+        <a class="dev-link" href="https://github.com/here-is-leo">@here-is-leo در گیت‌هاب ←</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="fmark">ردیاب هزینه · مجوز MIT · ساخته‌شده با ASP.NET Core 8 و React</span>
+    <span class="star-cta">⭐ اگر مفید بود، ستاره بدهید</span>
+  </footer>
+
+</div>
+</div>
+
+<script>
+  function setLang(lang){
+    document.getElementById('panel-en').classList.toggle('visible', lang === 'en');
+    document.getElementById('panel-fa').classList.toggle('visible', lang === 'fa');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fa').classList.toggle('active', lang === 'fa');
+    document.documentElement.setAttribute('lang', lang);
+    try { localStorage.setItem('et-readme-lang', lang); } catch(e){}
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+  (function(){
+    try {
+      var saved = localStorage.getItem('et-readme-lang');
+      if(saved === 'fa') setLang('fa');
+    } catch(e){}
+  })();
+</script>
+
+</body>
+</html>
