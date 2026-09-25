@@ -28,7 +28,9 @@ Base URL: `/api`
   "user": { "id": "uuid", "email": "user@example.com", "displayName": "Ali" }
 }
 
-**Errors:** 400 (invalid credentials)## Transactions
+**Errors:** 400 (invalid credentials)
+
+## Transactions
 
 All endpoints require `Authorization: Bearer <token>`.
 
