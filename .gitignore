@@ -44,3 +44,5 @@ logs/
 coverage/
 *.coverage
 TestResults/
+frontend/tsconfig.tsbuildinfo
+*.tsbuildinfo
