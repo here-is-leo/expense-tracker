@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="324" viewBox="0 0 1440 324" role="img" aria-labelledby="title">
+<title id="title">Ilia Farahani, Leo — Senior Developer — here-is-leo</title>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081B21"/><stop offset="1" stop-color="#102B32"/></linearGradient>
+<linearGradient id="mint" x2="1" y2="1"><stop stop-color="#DCFFD4"/><stop offset="1" stop-color="#76DABE"/></linearGradient>
+<linearGradient id="fade" x2="0" y2="1"><stop stop-color="#A1E5BD" stop-opacity=".22"/><stop offset="1" stop-color="#A1E5BD" stop-opacity="0"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#AAD6C4" opacity=".09"/></pattern>
+</defs>
+<g font-family="Segoe UI, Arial, sans-serif">
+<rect width="1440" height="324" rx="24" fill="url(#bg)"/>
+<rect width="1440" height="324" rx="24" fill="url(#dots)"/>
+<rect x="48" y="48" width="228" height="228" rx="24" fill="url(#mint)"/>
+<text x="162" y="195" text-anchor="middle" font-size="100" font-weight="800" letter-spacing="-8" fill="#12372C">LF</text>
+<text x="322" y="87" font-size="13" fill="#C5E9B4" letter-spacing="4">MEET THE DEVELOPER</text>
+<text x="317" y="160" font-size="55" fill="#F5F4E8" font-weight="700" letter-spacing="-2">Ilia Farahani</text>
+<text x="321" y="205" font-size="25" fill="#C1D4C7">Leo / Senior Developer</text>
+<text x="321" y="255" font-size="17" fill="#89AB9B">github.com/here-is-leo</text>
+<circle cx="1258" cy="162" r="91" fill="none" stroke="#375D4C"/>
+<circle cx="1258" cy="162" r="68" fill="none" stroke="#375D4C" stroke-dasharray="3 8"/>
+<text x="1258" y="174" text-anchor="middle" font-size="33" fill="#D3EFC5" font-weight="600">&lt;/&gt;</text>
+</g></svg>

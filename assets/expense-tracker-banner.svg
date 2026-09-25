@@ -1,89 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
-  <title id="title">Expense Tracker — personal finance, clearly in view</title>
-  <desc id="desc">Dark gradient banner with a stylized financial dashboard, chart, and completed release label.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#0B1224"/><stop offset=".55" stop-color="#111936"/><stop offset="1" stop-color="#102840"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop stop-color="#55E6B5"/><stop offset="1" stop-color="#4CC9F0"/>
-    </linearGradient>
-    <linearGradient id="line" x1="0" y1="1" x2="1" y2="0">
-      <stop stop-color="#3ABF98"/><stop offset="1" stop-color="#71EAD1"/>
-    </linearGradient>
-    <linearGradient id="donut" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#57E4BC"/><stop offset="1" stop-color="#3CA6DD"/>
-    </linearGradient>
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#020817" flood-opacity=".48"/>
-    </filter>
-    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="48"/>
-    </filter>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#8EA6CF" stroke-opacity=".055"/>
-    </pattern>
-    <clipPath id="round"><rect width="1200" height="480" rx="28"/></clipPath>
-  </defs>
-  <g clip-path="url(#round)">
-    <rect width="1200" height="480" fill="url(#bg)"/>
-    <circle cx="1030" cy="40" r="210" fill="#297EBB" opacity=".17" filter="url(#glow)"/>
-    <circle cx="385" cy="430" r="190" fill="#34CDA0" opacity=".12" filter="url(#glow)"/>
-    <rect width="1200" height="480" fill="url(#grid)"/>
-
-    <g font-family="Arial, Helvetica, sans-serif">
-      <rect x="66" y="58" width="202" height="31" rx="15.5" fill="#173E40" stroke="#3BBF9C" stroke-opacity=".45"/>
-      <circle cx="84" cy="73.5" r="4" fill="#5AF2BC"/>
-      <text x="98" y="78" fill="#A7F3D0" font-size="12" font-weight="700" letter-spacing="1.8">CORE RELEASE · 100%</text>
-
-      <text x="66" y="162" fill="#F5FAFF" font-size="58" font-weight="800" letter-spacing="-2">Expense</text>
-      <text x="66" y="223" fill="url(#accent)" font-size="58" font-weight="800" letter-spacing="-2">Tracker.</text>
-      <rect x="67" y="243" width="54" height="4" rx="2" fill="#5DE5BC"/>
-      <text x="66" y="288" fill="#CFD9E9" font-size="21" font-weight="400">Make money make sense.</text>
-      <text x="66" y="323" fill="#91A5BF" font-size="15">Track every transaction. See the bigger picture.</text>
-
-      <rect x="66" y="370" width="147" height="37" rx="18.5" fill="#1B3551" stroke="#4DBBC4" stroke-opacity=".35"/>
-      <text x="91" y="394" fill="#D4FBEC" font-size="13" font-weight="700">ASP.NET Core 8</text>
-      <rect x="225" y="370" width="91" height="37" rx="18.5" fill="#1B3551" stroke="#4DBBC4" stroke-opacity=".35"/>
-      <text x="248" y="394" fill="#D4FBEC" font-size="13" font-weight="700">React</text>
-      <rect x="328" y="370" width="105" height="37" rx="18.5" fill="#1B3551" stroke="#4DBBC4" stroke-opacity=".35"/>
-      <text x="351" y="394" fill="#D4FBEC" font-size="13" font-weight="700">SQL Server</text>
-
-      <g filter="url(#shadow)">
-        <rect x="604" y="52" width="532" height="384" rx="22" fill="#17243B" stroke="#334765"/>
-        <rect x="604" y="52" width="532" height="49" rx="22" fill="#1D2D46"/>
-        <path d="M604 78V101H1136V78" fill="#1D2D46"/>
-        <circle cx="631" cy="77" r="5" fill="#F87171"/>
-        <circle cx="648" cy="77" r="5" fill="#FBBF24"/>
-        <circle cx="665" cy="77" r="5" fill="#54D8A9"/>
-        <text x="696" y="82" fill="#94A8C1" font-size="12" letter-spacing="1.2">OVERVIEW / DASHBOARD</text>
-
-        <rect x="627" y="120" width="149" height="78" rx="13" fill="#213550"/>
-        <text x="642" y="146" fill="#93A9C3" font-size="11">TOTAL BALANCE</text>
-        <text x="642" y="176" fill="#F7FAFF" font-size="24" font-weight="700">$24,860</text>
-        <rect x="787" y="120" width="149" height="78" rx="13" fill="#213550"/>
-        <text x="802" y="146" fill="#93A9C3" font-size="11">INCOME</text>
-        <text x="802" y="176" fill="#67E6B5" font-size="24" font-weight="700">+$8,240</text>
-        <rect x="947" y="120" width="166" height="78" rx="13" fill="#213550"/>
-        <text x="962" y="146" fill="#93A9C3" font-size="11">EXPENSES</text>
-        <text x="962" y="176" fill="#FFC38B" font-size="24" font-weight="700">−$3,180</text>
-
-        <rect x="627" y="211" width="299" height="196" rx="13" fill="#1D2E47"/>
-        <text x="646" y="240" fill="#E3ECF8" font-size="13" font-weight="700">Monthly activity</text>
-        <path d="M648 275H906M648 312H906M648 349H906" stroke="#516581" stroke-opacity=".24" stroke-dasharray="3 5"/>
-        <path d="M648 359C678 350 686 329 716 337S763 304 791 309 839 267 869 281 890 252 906 260" fill="none" stroke="url(#line)" stroke-width="3.5" stroke-linecap="round"/>
-        <path d="M648 359C678 350 686 329 716 337S763 304 791 309 839 267 869 281 890 252 906 260V378H648Z" fill="#46C8A2" opacity=".08"/>
-        <circle cx="906" cy="260" r="5" fill="#75F5C9" stroke="#1D2E47" stroke-width="3"/>
-        <text x="648" y="393" fill="#8298B4" font-size="10">JAN</text><text x="712" y="393" fill="#8298B4" font-size="10">FEB</text><text x="776" y="393" fill="#8298B4" font-size="10">MAR</text><text x="840" y="393" fill="#8298B4" font-size="10">APR</text><text x="894" y="393" fill="#8298B4" font-size="10">MAY</text>
-
-        <rect x="938" y="211" width="175" height="196" rx="13" fill="#1D2E47"/>
-        <text x="955" y="240" fill="#E3ECF8" font-size="13" font-weight="700">Spending</text>
-        <circle cx="1025" cy="306" r="45" fill="none" stroke="#354966" stroke-width="18"/>
-        <circle cx="1025" cy="306" r="45" fill="none" stroke="url(#donut)" stroke-width="18" stroke-dasharray="180 283" transform="rotate(-90 1025 306)"/>
-        <circle cx="1025" cy="306" r="45" fill="none" stroke="#F5B87E" stroke-width="18" stroke-dasharray="68 283" stroke-dashoffset="-188" transform="rotate(-90 1025 306)"/>
-        <text x="1025" y="311" fill="#F0F7FF" font-size="16" font-weight="700" text-anchor="middle">100%</text>
-        <circle cx="962" cy="384" r="4" fill="#62E3BC"/><text x="972" y="388" fill="#9EB3CA" font-size="10">Tracked</text>
-      </g>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="680" viewBox="0 0 1440 680" role="img" aria-labelledby="title">
+<title id="title">Expense Tracker — Every penny. In perspective.</title>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081B21"/><stop offset="1" stop-color="#102B32"/></linearGradient>
+<linearGradient id="mint" x2="1" y2="1"><stop stop-color="#DCFFD4"/><stop offset="1" stop-color="#76DABE"/></linearGradient>
+<linearGradient id="fade" x2="0" y2="1"><stop stop-color="#A1E5BD" stop-opacity=".22"/><stop offset="1" stop-color="#A1E5BD" stop-opacity="0"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#AAD6C4" opacity=".09"/></pattern>
+</defs>
+<g font-family="Segoe UI, Arial, sans-serif">
+<rect width="1440" height="680" rx="28" fill="url(#bg)"/>
+<rect width="1440" height="680" rx="28" fill="url(#dots)"/>
+<path d="M740 0H1412Q1440 0 1440 28V652Q1440 680 1412 680H975Z" fill="#15383B" opacity=".52"/>
+<path d="M72 62H105V95H72Z" rx="7" fill="url(#mint)"/>
+<path d="M81 77H97M81 83H92" stroke="#14342F" stroke-width="3" stroke-linecap="round"/>
+<text x="120" y="86" font-size="17" letter-spacing="4" fill="#DCF2E5" font-weight="600">EXPENSE TRACKER</text>
+<rect x="1122" y="62" width="246" height="36" rx="18" fill="#173C35" stroke="#476C55"/>
+<circle cx="1142" cy="80" r="4" fill="#C9F6B7"/>
+<text x="1157" y="85" font-size="12" font-weight="600" fill="#D7F7C7" letter-spacing="1.4">CORE RELEASE / COMPLETE</text>
+<text x="72" y="162" font-size="13" fill="#A2C3B8" letter-spacing="3.8">PERSONAL FINANCE, MADE CLEAR.</text>
+<text x="65" y="267" font-size="102" font-weight="700" fill="#F5F4E8" letter-spacing="-5">Every penny.</text>
+<text x="65" y="373" font-size="102" font-weight="700" fill="url(#mint)" letter-spacing="-5">In perspective.</text>
+<text x="74" y="438" font-size="21" fill="#BACFC5">A thoughtful home for your income, expenses,</text>
+<text x="74" y="470" font-size="21" fill="#BACFC5">and the bigger financial picture.</text>
+<rect x="74" y="514" width="176" height="42" rx="21" fill="#D9F5C6"/>
+<text x="94" y="541" font-size="13" font-weight="700" fill="#14372E">TRACK. UNDERSTAND.</text>
+<text x="270" y="541" font-size="14" fill="#D0DCD2">ASP.NET Core 8 + React</text>
+<g transform="translate(1069 319)">
+<circle r="190" fill="none" stroke="#79B09A" stroke-opacity=".11"/>
+<circle r="153" fill="none" stroke="#79B09A" stroke-opacity=".18" stroke-dasharray="2 12"/>
+<circle r="115" fill="none" stroke="#79B09A" stroke-opacity=".13" stroke-width="34"/>
+<circle r="115" fill="none" stroke="url(#mint)" stroke-width="34" stroke-dasharray="535 723" transform="rotate(-88)"/>
+<text x="0" y="-11" text-anchor="middle" font-size="14" fill="#A9C5B8" letter-spacing="3">ONE CLEAR VIEW</text>
+<text x="0" y="28" text-anchor="middle" font-size="30" font-weight="700" fill="#F0F2E6">Your money.</text>
+<circle cx="0" cy="-190" r="5" fill="#CBEFBC"/>
+<circle cx="190" cy="0" r="5" fill="#73C6AB"/>
+</g>
+<rect x="922" y="494" width="306" height="57" rx="13" fill="#21433D" stroke="#487362"/>
+<path d="M943 524L949 530 960 517" fill="none" stroke="#CEF6B7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="973" y="519" font-size="12" fill="#AFC8BB" letter-spacing="1">BUILT AROUND YOUR WORKFLOW</text>
+<text x="973" y="538" font-size="14" fill="#F3F6E8" font-weight="600">Record. Organize. Review.</text>
+<path d="M72 596H1368" stroke="#43645B" stroke-opacity=".5"/>
+<text x="74" y="637" font-size="14" fill="#A3BFB3">FULL-STACK APPLICATION</text>
+<text x="720" y="637" text-anchor="middle" font-size="14" fill="#CBE9BC">CORE SCOPE / 100% COMPLETE</text>
+<text x="1365" y="637" text-anchor="end" font-size="14" fill="#A3BFB3">SENIOR DEVELOPER / LEO</text>
+</g></svg>
